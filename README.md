@@ -49,11 +49,13 @@
 ## 통합 아키텍처 구성 예시
 ### Basic
 
-![](general_process.png)
+![general_process](https://github.com/user-attachments/assets/baad1c5b-6cb9-441a-a314-74a50d727cc6)
+
 
 ### Producer/consumer (using Kafka)
 
-![](using_kafka_process.png)
+![using_kafka_process](https://github.com/user-attachments/assets/e16993ad-71fa-43fe-aa19-fa8e213854a6)
+
 
 #### 예상 토픽
 | Topic                  | 용도        | 메시지 생산자 | 메시지 소비자               |
