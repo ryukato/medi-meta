@@ -1,0 +1,23 @@
+{
+  "template": {
+    "settings": {
+      "index": {
+        "analysis": {
+          "tokenizer": {
+            "general_ngram_tokenizer": {
+              "type": "ngram",
+              "min_gram": "2",
+              "max_gram": "3"
+            }
+          },
+          "analyzer": {
+            "general_ngram_analyzer": {
+              "type":"custom",
+              "tokenizer": "general_ngram_tokenizer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

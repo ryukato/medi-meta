@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  redis-cluster:
+    image: 'phuongdm1987/docker-redis-cluster:1.0.0'
+#    volumes:
+#      - 'redis-cluster:/data'
+    ports:
+      - '27000-27005:7000-7005'
+    environment:
+      DEFAULT_PASSWORD: 'secret'

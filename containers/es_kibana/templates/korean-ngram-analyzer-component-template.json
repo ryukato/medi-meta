@@ -1,0 +1,73 @@
+{
+  "template": {
+    "settings": {
+      "index": {
+        "analysis": {
+          "filter": {
+            "nori_post_filter": {
+              "type": "nori_part_of_speech",
+              "stoptags": [
+                "E",
+                "IC",
+                "J",
+                "MAG",
+                "MAJ",
+                "MM",
+                "NA",
+                "NR",
+                "SC",
+                "SE",
+                "SF",
+                "SH",
+                "SL",
+                "SN",
+                "SP",
+                "SSC",
+                "SSO",
+                "SY",
+                "UNA",
+                "UNKNOWN",
+                "VA",
+                "VCN",
+                "VCP",
+                "VSV",
+                "VV",
+                "VX",
+                "XPN",
+                "XR",
+                "XSA",
+                "XSN",
+                "XSV"
+              ]
+            }
+          },
+          "analyzer": {
+            "korean": {
+              "filter": [
+                "lowercase",
+                "trim"
+              ],
+              "type": "custom",
+              "tokenizer": "nori_mixed"
+            },
+            "korean_ngram_analyzer": {
+              "filter": [
+                "lowercase",
+                "nori_post_filter",
+                "trim"
+              ],
+              "type": "custom",
+              "tokenizer": "nori_mixed"
+            }
+          },
+          "tokenizer": {
+            "nori_mixed": {
+              "type": "nori_tokenizer",
+              "decompound_mode": "mixed"
+            }
+          }
+        }
+      }
+    }
+  }
+}

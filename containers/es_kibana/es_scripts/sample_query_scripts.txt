@@ -1,0 +1,77 @@
+POST /product/_doc/
+{
+  "code": "P100000001",
+  "name": "삭센다펜주6밀리그램/밀리리터(리라글루티드)",
+  "name_en": "Saxenda Pen Inj. 6 mg/mL(Liraglutide)",
+  "main_ingredient": "[M266520]리라글루티드"
+}
+
+GET product/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "삭센",
+      "fields": ["name", "name_en", "main_ingredient"]
+    }
+  }
+}
+
+GET product/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "다펜주",
+      "fields": ["name", "name_en", "main_ingredient"]
+    }
+  }
+}
+
+GET product/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "리라",
+      "fields": ["name", "name_en", "main_ingredient"]
+    }
+  }
+}
+
+GET product/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "Saxenda",
+      "fields": ["name", "name_en", "main_ingredient"]
+    }
+  }
+}
+
+GET product/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "Liraglutide",
+      "fields": ["name", "name_en", "main_ingredient"]
+    }
+  }
+}
+
+GET product/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "보조제",
+      "fields": ["effects", "usage"]
+    }
+  }
+}
+
+GET product/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "시작용량",
+      "fields": ["effects", "usage"]
+    }
+  }
+}

@@ -1,0 +1,79 @@
+# Version catalog is a central place for you to declare and version dependencies
+# https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
+# https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
+
+[versions]
+kotlin = "2.1.20"
+kotlinxDatetime = "0.6.1"
+kotlinxSerializationJSON = "1.7.3"
+kotlinxCoroutines = "1.9.0"
+junit = "5.10.1"
+jackson = "2.17.2" #  this is the version for spring-boot:3.3.3
+retrofit2 = "2.11.0"
+okhttp = "4.12.0"
+sandwichRetrofit = "2.0.8"
+springBoot = "3.3.3"
+osdetectorPlugin = "1.7.1"
+springDocs = "2.3.0"
+jasypt = "3.0.5"
+
+[libraries]
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinxDatetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+kotlinxSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJSON" }
+kotlinxCoroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+
+jacksonDatabind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jacksonModuleKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
+jacksonJsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+retrofit2 = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit2" }
+retrofit2ConverterJackson = { module = "com.squareup.retrofit2:converter-jackson", version.ref = "retrofit2" }
+retrofit2ConverterScalas = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit2" }
+okHttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okHttpMockWebServer = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
+okhttpLoggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+sandwichRetrofit = { module = "com.github.skydoves:sandwich-retrofit", version.ref = "sandwichRetrofit" }
+sandwichRetrofitSerialization = { module = "com.github.skydoves:sandwich-retrofit-serialization", version.ref = "sandwichRetrofit" }
+
+# spring
+springBoot = { module = "org.springframework.boot:spring-boot" }
+springBootStarter = { module = "org.springframework.boot:spring-boot-starter" }
+springBootStarterWebflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
+springBootStarterValidation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test" }
+springDocs = { module = "org.springdoc:springdoc-openapi-starter-webflux-ui", version.ref = "springDocs" }
+
+jasypt = { module = "com.github.ulisesbocchio:jasypt-spring-boot-starter", version.ref = "jasypt" }
+
+# Libraries can be bundled together for easier import
+[bundles]
+kotlinxEcosystem = ["kotlinxDatetime", "kotlinxSerialization", "kotlinxCoroutines"]
+jackson = ["jacksonDatabind", "jacksonModuleKotlin", "jacksonJsr310"]
+retrofit2 = [
+    "retrofit2",
+    "retrofit2ConverterJackson",
+    "retrofit2ConverterScalas",
+    "okHttp",
+    "okHttpMockWebServer",
+    "okhttpLoggingInterceptor",
+    "sandwichRetrofit",
+    "sandwichRetrofitSerialization"
+]
+springBoot = [
+    "springBoot",
+    "springBootStarter",
+    "springBootStarterWebflux",
+]
+springBootWebFluxDependencies = [
+    "springBootStarterWebflux",
+    "springBootStarterValidation",
+    "springDocs"
+]
+
+[plugins]
+kotlinPluginSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
+springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.6" }
+osdetectorPlugin = { id = "com.google.osdetector", version.ref = "osdetectorPlugin" }

@@ -1,0 +1,44 @@
+{
+  "index_patterns": [
+    "product*"
+  ],
+  "template": {
+    "settings": {
+      "index": {
+        "number_of_shards": "1",
+        "number_of_replicas": "1"
+      }
+    },
+    "mappings": {
+      "properties": {
+        "code": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "text",
+          "analyzer": "general_ngram_analyzer"
+        },
+        "name_eng": {
+          "type": "text",
+          "analyzer": "general_ngram_analyzer"
+        },
+        "main_ingredient": {
+          "type": "text",
+          "analyzer": "general_ngram_analyzer"
+        },
+        "effects": {
+          "type": "text",
+          "analyzer": "korean_ngram_analyzer"
+        },
+        "usage": {
+          "type": "text",
+          "analyzer": "korean_ngram_analyzer"
+        }
+      }
+    }
+  },
+  "composed_of": [
+    "general_ngram_analyzer",
+    "korean_ngram_analyzer"
+  ]
+}
