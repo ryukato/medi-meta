@@ -1,4 +1,4 @@
-# # Domain-Model
+# Domain-Model
 ## Medical Product
 ### Simple Model
 
