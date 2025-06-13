@@ -17,6 +17,8 @@ dependencies {
     if ("osx-aarch_64" == osdetector.classifier) {
         runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.100.Final:osx-aarch_64")
     }
+    implementation(libs.bundles.kotlinxCoroutinesReactor)
+    implementation(libs.reactorTest)
     implementation(libs.bundles.springBootWebFluxDependencies)
     implementation(libs.jasypt)
 
