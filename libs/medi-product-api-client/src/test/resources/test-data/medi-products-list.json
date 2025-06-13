@@ -1,0 +1,82 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 45053,
+    "numOfRows": 3,
+    "items": [
+      {
+        "ITEM_SEQ": "195500005",
+        "ITEM_NAME": "중외5%포도당생리식염액(수출명:5%DextroseinnormalsalineInj.)",
+        "ITEM_ENG_NAME": "Choongwae 5% Dextrose In Normal Saline Inj.",
+        "ENTP_NAME": "제이더블유중외제약(주)",
+        "ENTP_ENG_NAME": "JW Pharmaceutical",
+        "ENTP_SEQ": "19550004",
+        "ENTP_NO": "1302",
+        "ITEM_PERMIT_DATE": "19550412",
+        "INDUTY": "의약품",
+        "PRDLST_STDR_CODE": "195500005",
+        "SPCLTY_PBLC": "전문의약품",
+        "PRDUCT_TYPE": "[03310]혈액대용제",
+        "PRDUCT_PRMISN_NO": "792",
+        "ITEM_INGR_NAME": "Glucose/Sodium Chloride",
+        "ITEM_INGR_CNT": "2",
+        "BIG_PRDT_IMG_URL": "",
+        "PERMIT_KIND_CODE": "신고",
+        "CANCEL_DATE": null,
+        "CANCEL_NAME": "정상",
+        "EDI_CODE": "644902212,644902220",
+        "BIZRNO": "1188102477"
+      },
+      {
+        "ITEM_SEQ": "195500006",
+        "ITEM_NAME": "중외5%포도당주사액",
+        "ITEM_ENG_NAME": "JW 5% Dextrose Injection",
+        "ENTP_NAME": "제이더블유중외제약(주)",
+        "ENTP_ENG_NAME": "JW Pharmaceutical",
+        "ENTP_SEQ": "19550004",
+        "ENTP_NO": "1302",
+        "ITEM_PERMIT_DATE": "19550413",
+        "INDUTY": "의약품",
+        "PRDLST_STDR_CODE": "195500006",
+        "SPCLTY_PBLC": "전문의약품",
+        "PRDUCT_TYPE": "[03230]당류제",
+        "PRDUCT_PRMISN_NO": "192",
+        "ITEM_INGR_NAME": "Glucose",
+        "ITEM_INGR_CNT": "1",
+        "BIG_PRDT_IMG_URL": "",
+        "PERMIT_KIND_CODE": "신고",
+        "CANCEL_DATE": null,
+        "CANCEL_NAME": "정상",
+        "EDI_CODE": "644902232,644902233,644902241,644902243,644902252,644902262,644902272",
+        "BIZRNO": "1188102477"
+      },
+      {
+        "ITEM_SEQ": "195600004",
+        "ITEM_NAME": "중외20%포도당주사액",
+        "ITEM_ENG_NAME": "JW Glucose Injection 20%",
+        "ENTP_NAME": "제이더블유중외제약(주)",
+        "ENTP_ENG_NAME": "JW Pharmaceutical",
+        "ENTP_SEQ": "19550004",
+        "ENTP_NO": "1302",
+        "ITEM_PERMIT_DATE": "19561129",
+        "INDUTY": "의약품",
+        "PRDLST_STDR_CODE": "195600004",
+        "SPCLTY_PBLC": "전문의약품",
+        "PRDUCT_TYPE": "[03230]당류제",
+        "PRDUCT_PRMISN_NO": "5020",
+        "ITEM_INGR_NAME": "Glucose",
+        "ITEM_INGR_CNT": "1",
+        "BIG_PRDT_IMG_URL": "",
+        "PERMIT_KIND_CODE": "신고",
+        "CANCEL_DATE": null,
+        "CANCEL_NAME": "정상",
+        "EDI_CODE": "644902021,644902042",
+        "BIZRNO": "1188102477"
+      }
+    ]
+  }
+}

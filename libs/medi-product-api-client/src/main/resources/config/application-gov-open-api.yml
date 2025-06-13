@@ -1,0 +1,8 @@
+gov-open-api:
+  product:
+    service-key: mf/ad0132hYGXI2kLeBAJ7ml+DdVw2EHtFNIk6/suAJZSAkj4ZyJON/YMHJuzC4Vvo9Q+QaJFIim3yx2Q4nwPA==
+    host: http://apis.data.go.kr
+    path: /1471000/DrugPrdtPrmsnInfoService05
+    response-timeout: 10s
+    connection-timeout: 10s
+    debug-all: true
