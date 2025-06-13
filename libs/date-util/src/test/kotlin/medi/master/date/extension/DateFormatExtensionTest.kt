@@ -1,11 +1,9 @@
-package com.firstpark.date.extension
+package medi.master.date.extension
 
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.YearMonth
 import kotlin.test.assertEquals
-import medi.master.date.extension.toFormatDateTime
-import medi.master.date.extension.toIso8601String
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

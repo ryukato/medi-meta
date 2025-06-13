@@ -1,4 +1,4 @@
-package com.firstpark.date.extension
+package medi.master.date.extension
 
 import medi.master.date.util.DateUtil
 import java.time.LocalDateTime

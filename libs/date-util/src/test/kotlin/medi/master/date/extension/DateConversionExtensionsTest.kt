@@ -1,10 +1,8 @@
-package com.firstpark.date.extension
+package medi.master.date.extension
 
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 import kotlin.test.assertEquals
-import medi.master.date.extension.toEpochMilli
-import medi.master.date.extension.toLocalDateTime
 import org.junit.jupiter.api.Test
 
 class DateConversionExtensionsTest {
