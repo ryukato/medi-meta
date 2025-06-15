@@ -1,5 +1,16 @@
-### 의약품 제품 허가 정보
-#### 목록
+## 의약품 제품 허가 정보
+### 목록
+#### URL
+* https://www.data.go.kr/data/15095677/openapi.do#/API%20%EB%AA%A9%EB%A1%9D/getDrugPrdtPrmsnInq06
+#### Constraints
+* max request size(numOfRows): 100
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DrugPrdtPrmsnInfoService06/getDrugPrdtPrmsnInq06?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 "items": [
 {
@@ -28,7 +39,19 @@
 ]
 ```
 
-#### 상세
+### 상세
+#### URL
+* https://www.data.go.kr/data/15095677/openapi.do#/API%20%EB%AA%A9%EB%A1%9D/getDrugPrdtPrmsnDtlInq05
+#### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DrugPrdtPrmsnInfoService06/getDrugPrdtPrmsnDtlInq05?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 "items": [
 {
@@ -78,7 +101,19 @@
 ]
 ```
 
-### 의약품개요정보(e약은요)
+## 의약품개요정보(e약은요)
+### URL
+* https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList
+### Constraints
+* max request size(numOfRows): 100
+
+### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+    -H 'accept: */*' | jq
+```
+### Sample
 업체명, 제품명, 품목기준코드, 효능, 사용법, 주의사항, 상호작용, 부작용, 보관법 등 정보
 ```json
 {
@@ -99,9 +134,20 @@
 }
 ```
 
-### 묶음 의약품 정보
+## 묶음 의약품 정보
 * "의약품 제품 허가 정보"의 "ITEM_SEQ"와 "trustIndutyCode"와 동일한 것으로 보임
+### URL
+* https://apis.data.go.kr/1471000/DrbBundleInfoService02/getDrbBundleList02
+### Constraints
+* max request size(numOfRows): 100
 
+### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DrbBundleInfoService02/getDrbBundleList02?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+    -H 'accept: */*' | jq
+```
+### Sample
 ```json
 {
     "trustIndutyCode": "198000058",
@@ -125,10 +171,23 @@
 }
 ```
 
-### 약가기준정보
+## 약가기준정보
 * "의약품 제품 허가 정보"의 "EDI_CODE"와 "mdsCd(제품코드)"와 일치하는 것으로 보임
 * response format: xml
+### URL
+* 약가목록조회: https://apis.data.go.kr/B551182/dgamtCrtrInfoService1.2/getDgamtList
+* 한방약가목록조회: https://apis.data.go.kr/B551182/dgamtCrtrInfoService1.2/getCmdcDgamtList
+### Constraints
+* max request size(numOfRows): 100
 
+### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/B551182/dgamtCrtrInfoService1.2/getDgamtList?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+    -H 'accept: */*' | jq
+```
+### Sample
+#### 약가목록조회
 ```xml
 <items>
     <item>
@@ -150,10 +209,50 @@
 </items>
 ```
 
+#### 한방약가목록조회
+```xml
+<response>
+    <header>
+    <resultCode>00</resultCode>
+    <resultMsg>NORMAL SERVICE.</resultMsg>
+  </header>
+  <body>
+    <items>
+      <item>
+        <adtStaDd>20130301</adtStaDd>
+        <injcPthNm>내복</injcPthNm>
+        <itmNm>정우치자엑스산</itmNm>
+        <mdsCd>651002520</mdsCd>
+        <nomNm>1</nomNm>
+        <payTpNm>삭제</payTpNm>
+        <perCuprc>0</perCuprc>
+        <unit>g</unit>
+      </item>
+    </items>
+    <numOfRows>10</numOfRows>
+    <pageNo>1</pageNo>
+    <totalCount>1</totalCount>
+  </body>
+</response>
+```
 
 
-### 회수 판매중지 데이터 샘플
-#### 목록
+
+## 회수 판매중지 데이터 샘플
+### 목록
+#### URL
+* 의약품 회수·판매중지 목록조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03
+* 의약품외 회수•판매중지 목록조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelEtcList02
+#### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
     "items": [
       {
@@ -172,7 +271,20 @@
     ]
 ```
 
-#### 상세
+### 상세
+#### URL
+* 의약품 회수•판매중지 상세조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeItem03
+* 의약품 회수·판매중지 상세조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeEtcItem03
+#### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 "items": [
       {
@@ -198,7 +310,19 @@
     ]
 ```
 
-### 의약품 낱알식별 정보
+## 의약품 낱알식별 정보
+### URL
+* https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService02/getMdcinGrnIdntfcInfoList02
+### Constraints
+* max request size(numOfRows): 100
+
+### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService02/getMdcinGrnIdntfcInfoList02?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=198000058' \
+    -H 'accept: */*' | jq
+```
+### Sample
 품목명, 업체명, 의약품의 모양, 색 등의 의약품 낱알 정보를 목록으로 제공
 ```json
 {
@@ -238,7 +362,7 @@
 }
 ```
 
-### 의약품안전사용서비스(DUR)성분정보
+## 의약품안전사용서비스(DUR)성분정보
 * 하위 항목으로는 다음과 같은 항목들이 있다.
   * 병용금기 - 두 가지 이상의 의약품 또는 성분을 함께 복용(병용)할 경우, 심각한 부작용이나 안전성 문제가 발생할 수 있어 함께 사용해서는 안 되는 조합 성분 정보
   * 임부금기 - 임신 중인 여성(임부)이 복용할 경우 태아에게 해를 끼치거나 임산부의 건강에 위험을 줄 수 있어 복용이 금지된 성분 정보
@@ -249,7 +373,19 @@
   * 효능군중복 - 효능의 중복이 있는 성분 정보
 * "의약품 제품 허가 정보"와는 별도로 조회하여 저장한다.
 * "의약품 제품 허가 정보"의 상세 항목 중, "MAIN_ITEM_INGR"내의 코드(예, "M089049")와 일치하는 항목들을 조회하여 의약품 정보와 함께 제공
-#### DUR성분정보의 병용금기 정보
+### DUR성분정보의 병용금기 정보
+#### URL
+* https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getUsjntTabooInfoList03
+### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getUsjntTabooInfoList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=198000058' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 {
     "item": {
@@ -276,7 +412,19 @@
 }
 ```
 
-#### DUR성분정보의 임부금기 정보
+### DUR성분정보의 임부금기 정보
+#### URL
+* https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getPwnmTabooInfoList03
+### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getPwnmTabooInfoList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 {
     "item": {
@@ -299,7 +447,19 @@
 }
 ```
 
-#### DUR성분정보의 용량주의 정보
+### DUR성분정보의 용량주의 정보
+#### URL
+* https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getCpctyAtentInfoList03
+### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getCpctyAtentInfoList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 {
     "item": {
@@ -322,7 +482,19 @@
 }
 ```
 
-#### DUR성분정보의 투여기간주의 정보
+### DUR성분정보의 투여기간주의 정보
+#### URL
+* https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getMdctnPdAtentInfoList03
+### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getMdctnPdAtentInfoList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 {
     "item": {
@@ -345,7 +517,19 @@
 }
 ```
 
-#### DUR성분정보의 노인주의 정보
+### DUR성분정보의 노인주의 정보
+#### URL
+* https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getOdsnAtentInfoList03
+### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getOdsnAtentInfoList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
  {
     "item": {
@@ -366,7 +550,19 @@
 }
 ```
 
-#### DUR성분정보의 특정연령대금기 정보
+### DUR성분정보의 특정연령대금기 정보
+#### URL
+* https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getSpcifyAgrdeTabooInfoList03
+### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getSpcifyAgrdeTabooInfoList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 {
     "item": {
@@ -389,7 +585,19 @@
 }
 ```
 
-#### DUR성분정보의 효능군중복 정보
+### DUR성분정보의 효능군중복 정보
+#### URL
+* https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getEfcyDplctInfoList03
+### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getEfcyDplctInfoList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json' \
+    -H 'accept: */*' | jq
+```
+#### Sample
 ```json
 {
     "item": {
