@@ -100,40 +100,6 @@ curl -X 'GET' \
 }
 ]
 ```
-
-## 의약품개요정보(e약은요)
-### URL
-* https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList
-### Constraints
-* max request size(numOfRows): 100
-
-### Fetching sample
-```shell
-curl -X 'GET' \
-  'https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
-    -H 'accept: */*' | jq
-```
-### Sample
-업체명, 제품명, 품목기준코드, 효능, 사용법, 주의사항, 상호작용, 부작용, 보관법 등 정보
-```json
-{
-    "atpnQesitm": "만 3개월 미만의 젖먹이는 이 약을 복용하지 마십시오.\n\n이 약을 복용하기 전에 만 1세 미만의 젖먹이, 임부 또는 임신하고 있을 가능성이 있는 여성, 카라멜에 과민증 환자 또는 경험자, 나트륨 제한 식이를 하는 사람은 의사 또는 약사와 상의하십시오.\n\n정해진 용법과 용량을 잘 지키십시오.\n\n어린이에게 투여할 경우 보호자의 지도 감독하에 투여하십시오.\n\n1개월 정도 복용하여도 증상의 개선이 없을 경우 복용을 즉각 중지하고 의사 또는 약사와 상의하십시오.\n",
-    "atpnWarnQesitm": null,
-    "bizrno": "1108100102",
-    "depositMethodQesitm": "습기와 빛을 피해 실온에서 보관하십시오.\n\n어린이의 손이 닿지 않는 곳에 보관하십시오.\n",
-    "efcyQesitm": "이 약은 식욕감퇴(식욕부진), 위부팽만감, 소화불량, 과식, 체함, 구역, 구토에 사용합니다.\n",
-    "entpName": "동화약품(주)",
-    "intrcQesitm": null,
-    "itemImage": null,
-    "itemName": "활명수",
-    "itemSeq": "195700020",
-    "openDe": "2021-01-29 00:00:00",
-    "seQesitm": null,
-    "updateDe": "2024-05-09",
-    "useMethodQesitm": "만 15세 이상 및 성인은 1회 1병(75 mL), 만 11세이상~만 15세미만은 1회 2/3병(50 mL), 만 8세 이상~만 11세 미만은 1회 1/2병(37.5 mL), 만 5세 이상~만 8세 미만은 1회 1/3병(25 mL), 만 3세 이상~만 5세 미만은 1회 1/4병(18.75 mL), 만 1세 이상~만 3세 미만은 1회 1/5병(15 mL), 1일 3회 식후에 복용합니다. 복용간격은 4시간 이상으로 합니다.\n"
-}
-```
-
 ## 묶음 의약품 정보
 * "의약품 제품 허가 정보"의 "ITEM_SEQ"와 "trustIndutyCode"와 동일한 것으로 보임
 ### URL
@@ -173,6 +139,7 @@ curl -X 'GET' \
 
 ## 약가기준정보
 * "의약품 제품 허가 정보"의 "EDI_CODE"와 "mdsCd(제품코드)"와 일치하는 것으로 보임
+* "묶음 의약품 정보"의 "HiraPrductCode"와 "mdsCd"는 동일한 것으로 보임
 * response format: xml
 ### URL
 * 약가목록조회: https://apis.data.go.kr/B551182/dgamtCrtrInfoService1.2/getDgamtList
@@ -183,9 +150,12 @@ curl -X 'GET' \
 ### Fetching sample
 ```shell
 curl -X 'GET' \
-  'https://apis.data.go.kr/B551182/dgamtCrtrInfoService1.2/getDgamtList?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
-    -H 'accept: */*' | jq
+  'https://apis.data.go.kr/B551182/dgamtCrtrInfoService1.2/getDgamtList?ServiceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&numOfRows=100&pageNo=1&mdsCd=645101681' \
+  -H 'accept: */*' | xmllint --format -
 ```
+> Note
+> xmllint is used to format the XML response for better readability. You can install it using `apt-get install libxml2-utils` on Debian-based systems or `brew install libxml2` on macOS.
+
 ### Sample
 #### 약가목록조회
 ```xml
@@ -236,40 +206,8 @@ curl -X 'GET' \
 </response>
 ```
 
-
-
-## 회수 판매중지 데이터 샘플
-### 목록
-#### URL
-* 의약품 회수·판매중지 목록조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03
-* 의약품외 회수•판매중지 목록조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelEtcList02
-#### Constraints
-* max request size(numOfRows): 100
-
-#### Fetching sample
-```shell
-curl -X 'GET' \
-  'https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
-    -H 'accept: */*' | jq
-```
-#### Sample
-```json
-    "items": [
-      {
-        "item": {
-          "PRDUCT": "스트렙실허니앤레몬트로키(플루르비프로펜), 스트렙실오렌지트로키(플루르비프로펜)",
-          "ENTRPS": "(유)옥시레킷벤키저",
-          "RTRVL_RESN": "변경 명령(사용상의 주의사항 일부) 미반영에 의한 영업자 회수",
-          "ENFRC_YN": "N",
-          "RTRVL_CMMND_DT": null,
-          "RECALL_COMMAND_DATE": "20250123",
-          "ITEM_SEQ": "200906877",
-          "BIZRNO": "2198105044",
-          "STD_CD": "8806406001007,8806406001014,8806406001021,8806406001038,8806406001045"
-        }
-      }
-    ]
-```
+## 회수 판매중지
+* 상세 조회를 통해 전체 데이터를 조회 및 저장 처리하면 될 것으로 보임
 
 ### 상세
 #### URL
@@ -305,6 +243,38 @@ curl -X 'GET' \
           "BIZRNO": "2198105044",
           "STD_CD": "8806406001007,8806406001014,8806406001021,8806406001038,8806406001045",
           "ITEM_SEQ": "200906877"
+        }
+      }
+    ]
+```
+
+### ~~목록~~
+#### URL
+* 의약품 회수·판매중지 목록조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03
+* 의약품외 회수•판매중지 목록조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelEtcList02
+#### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+    -H 'accept: */*' | jq
+```
+#### Sample
+```json
+    "items": [
+      {
+        "item": {
+          "PRDUCT": "스트렙실허니앤레몬트로키(플루르비프로펜), 스트렙실오렌지트로키(플루르비프로펜)",
+          "ENTRPS": "(유)옥시레킷벤키저",
+          "RTRVL_RESN": "변경 명령(사용상의 주의사항 일부) 미반영에 의한 영업자 회수",
+          "ENFRC_YN": "N",
+          "RTRVL_CMMND_DT": null,
+          "RECALL_COMMAND_DATE": "20250123",
+          "ITEM_SEQ": "200906877",
+          "BIZRNO": "2198105044",
+          "STD_CD": "8806406001007,8806406001014,8806406001021,8806406001038,8806406001045"
         }
       }
     ]
@@ -619,3 +589,37 @@ curl -X 'GET' \
     }
 }
 ```
+
+## 의약품개요정보(e약은요)
+### URL
+* https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList
+### Constraints
+* max request size(numOfRows): 100
+
+### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+    -H 'accept: */*' | jq
+```
+### Sample
+업체명, 제품명, 품목기준코드, 효능, 사용법, 주의사항, 상호작용, 부작용, 보관법 등 정보
+```json
+{
+    "atpnQesitm": "만 3개월 미만의 젖먹이는 이 약을 복용하지 마십시오.\n\n이 약을 복용하기 전에 만 1세 미만의 젖먹이, 임부 또는 임신하고 있을 가능성이 있는 여성, 카라멜에 과민증 환자 또는 경험자, 나트륨 제한 식이를 하는 사람은 의사 또는 약사와 상의하십시오.\n\n정해진 용법과 용량을 잘 지키십시오.\n\n어린이에게 투여할 경우 보호자의 지도 감독하에 투여하십시오.\n\n1개월 정도 복용하여도 증상의 개선이 없을 경우 복용을 즉각 중지하고 의사 또는 약사와 상의하십시오.\n",
+    "atpnWarnQesitm": null,
+    "bizrno": "1108100102",
+    "depositMethodQesitm": "습기와 빛을 피해 실온에서 보관하십시오.\n\n어린이의 손이 닿지 않는 곳에 보관하십시오.\n",
+    "efcyQesitm": "이 약은 식욕감퇴(식욕부진), 위부팽만감, 소화불량, 과식, 체함, 구역, 구토에 사용합니다.\n",
+    "entpName": "동화약품(주)",
+    "intrcQesitm": null,
+    "itemImage": null,
+    "itemName": "활명수",
+    "itemSeq": "195700020",
+    "openDe": "2021-01-29 00:00:00",
+    "seQesitm": null,
+    "updateDe": "2024-05-09",
+    "useMethodQesitm": "만 15세 이상 및 성인은 1회 1병(75 mL), 만 11세이상~만 15세미만은 1회 2/3병(50 mL), 만 8세 이상~만 11세 미만은 1회 1/2병(37.5 mL), 만 5세 이상~만 8세 미만은 1회 1/3병(25 mL), 만 3세 이상~만 5세 미만은 1회 1/4병(18.75 mL), 만 1세 이상~만 3세 미만은 1회 1/5병(15 mL), 1일 3회 식후에 복용합니다. 복용간격은 4시간 이상으로 합니다.\n"
+}
+```
+
