@@ -2,7 +2,7 @@ package medi.master.core.domain.api.parser
 
 import java.io.ByteArrayInputStream
 import javax.xml.parsers.DocumentBuilderFactory
-import medi.master.core.domain.medical.product.MedicalItemArticleData
+import medi.master.core.domain.medical.product.model.MedicalItemArticleData
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import medi.master.core.domain.medical.product.MedicalDetailItem
+import medi.master.core.domain.medical.product.model.MedicalDetailItem
 
 class DefaultProductApprovalSourceParser : RawDataParser<String, Set<MedicalDetailItem>> {
 

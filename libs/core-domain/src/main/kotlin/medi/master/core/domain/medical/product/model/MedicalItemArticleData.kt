@@ -1,4 +1,4 @@
-package medi.master.core.domain.medical.product
+package medi.master.core.domain.medical.product.model
 
 data class MedicalItemArticleData(
     val title: String,

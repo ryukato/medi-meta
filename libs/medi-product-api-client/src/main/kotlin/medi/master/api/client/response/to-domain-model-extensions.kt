@@ -1,6 +1,6 @@
 package medi.master.api.client.response
 
-import medi.master.core.domain.medical.product.MedicalDetailItem
+import medi.master.core.domain.medical.product.model.MedicalDetailItem
 
 
 fun MedicalItemDetailsResponse.toMedicalItemExcludeDocumentsData(): MedicalDetailItem {
