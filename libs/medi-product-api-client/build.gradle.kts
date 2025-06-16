@@ -18,6 +18,7 @@ dependencies {
 
     implementation(libs.bundles.kotlinxEcosystem)
     implementation(libs.bundles.jackson)
+    implementation(libs.jacksonXmlModule)
     implementation(libs.bundles.kotlinxCoroutinesReactor)
     implementation(libs.reactorTest)
     implementation(libs.bundles.springBootWebFluxDependencies)

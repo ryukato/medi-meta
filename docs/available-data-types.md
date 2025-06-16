@@ -110,7 +110,7 @@ curl -X 'GET' \
 ### Fetching sample
 ```shell
 curl -X 'GET' \
-  'https://apis.data.go.kr/1471000/DrbBundleInfoService02/getDrbBundleList02?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
+  'https://apis.data.go.kr/1471000/DrbBundleInfoService02/getDrbBundleList02?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=1&type=json&trustIndutyCode=198000058' \
     -H 'accept: */*' | jq
 ```
 ### Sample
@@ -207,48 +207,10 @@ curl -X 'GET' \
 ```
 
 ## 회수 판매중지
-* 상세 조회를 통해 전체 데이터를 조회 및 저장 처리하면 될 것으로 보임
+* ~~상세 조회를 통해 전체 데이터를 조회 및 저장 처리하면 될 것으로 보임~~
 
-### 상세
-#### URL
-* 의약품 회수•판매중지 상세조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeItem03
-* 의약품 회수·판매중지 상세조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeEtcItem03
-#### Constraints
-* max request size(numOfRows): 100
 
-#### Fetching sample
-```shell
-curl -X 'GET' \
-  'https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&item_seq=195500005' \
-    -H 'accept: */*' | jq
-```
-#### Sample
-```json
-"items": [
-      {
-        "item": {
-          "ENTRPS": "(유)옥시레킷벤키저",
-          "ENTRPS_ADRES": "서울특별시 영등포구  국제금융로 10 24층(여의도동, 투아이에프씨)[영업소]",
-          "ENTRPS_TELNO": "010-****-****",
-          "PRDUCT": "스트렙실허니앤레몬트로키(플루르비프로펜), 스트렙실오렌지트로키(플루르비프로펜)",
-          "RTRVL_RESN": "변경 명령(사용상의 주의사항 일부) 미반영에 의한 영업자 회수",
-          "MNFCTUR_NO": "SE674,SC735,RS609,SK425,SG519,SC734,RZ355,RS607,RR849",
-          "MNFCTUR_DT": null,
-          "USGPD": "제조일로부터 36개월",
-          "PACKNG_UNIT": "제조원 포장단위",
-          "RTRVL_CMMND_DT": null,
-          "RM": null,
-          "RECALL_COMMAND_DATE": "20250123",
-          "OPEN_END_DATE": "20280122",
-          "BIZRNO": "2198105044",
-          "STD_CD": "8806406001007,8806406001014,8806406001021,8806406001038,8806406001045",
-          "ITEM_SEQ": "200906877"
-        }
-      }
-    ]
-```
-
-### ~~목록~~
+### 목록
 #### URL
 * 의약품 회수·판매중지 목록조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03
 * 의약품외 회수•판매중지 목록조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelEtcList02
@@ -279,6 +241,46 @@ curl -X 'GET' \
       }
     ]
 ```
+
+### 상세
+#### URL
+* 의약품 회수•판매중지 상세조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeItem03
+* 의약품 회수·판매중지 상세조회: https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeEtcItem03
+#### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeItem03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json' \
+    -H 'accept: */*' | jq
+```
+#### Sample
+```json
+"items": [
+      {
+        "item": {
+          "ENTRPS": "(유)옥시레킷벤키저",
+          "ENTRPS_ADRES": "서울특별시 영등포구  국제금융로 10 24층(여의도동, 투아이에프씨)[영업소]",
+          "ENTRPS_TELNO": "010-****-****",
+          "PRDUCT": "스트렙실허니앤레몬트로키(플루르비프로펜), 스트렙실오렌지트로키(플루르비프로펜)",
+          "RTRVL_RESN": "변경 명령(사용상의 주의사항 일부) 미반영에 의한 영업자 회수",
+          "MNFCTUR_NO": "SE674,SC735,RS609,SK425,SG519,SC734,RZ355,RS607,RR849",
+          "MNFCTUR_DT": null,
+          "USGPD": "제조일로부터 36개월",
+          "PACKNG_UNIT": "제조원 포장단위",
+          "RTRVL_CMMND_DT": null,
+          "RM": null,
+          "RECALL_COMMAND_DATE": "20250123",
+          "OPEN_END_DATE": "20280122",
+          "BIZRNO": "2198105044",
+          "STD_CD": "8806406001007,8806406001014,8806406001021,8806406001038,8806406001045",
+          "ITEM_SEQ": "200906877"
+        }
+      }
+    ]
+```
+
 
 ## 의약품 낱알식별 정보
 ### URL

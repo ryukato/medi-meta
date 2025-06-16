@@ -1,0 +1,35 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 1,
+    "numOfRows": 1,
+    "items": [
+      {
+        "item": {
+          "trustIndutyCode": "198000058",
+          "trustItemName": "디페인정(디클로페낙나트륨)",
+          "trustMainingr": "디클로페낙나트륨",
+          "trustQntList": "25밀리그램",
+          "trustEntpName": "동광제약(주)",
+          "trustManuf": "동광제약(주) 평택 제 1공장",
+          "trustItemPermitDate": "1980-03-29 00:00:00",
+          "trustHiraMainingrCode": "143504ATB",
+          "trustHiraPrductCode": "645901100",
+          "trustAtcCode": "M01AB05 (diclofenac)",
+          "trustCancelName": "정상",
+          "cnsgnItemSeq": "201602311",
+          "cnsgnItemName": "클로디펜정(디클로페낙나트륨)",
+          "cnsgnEntpName": "(주)에이프로젠바이오로직스",
+          "cnsgnManuf": "동광제약(주) 평택 제 1공장",
+          "cnsgnItemPermitDate": "2016-04-25 00:00:00",
+          "cnsgnHiraPrductCode": null,
+          "cnsgnCancelName": "유효기간만료"
+        }
+      }
+    ]
+  }
+}

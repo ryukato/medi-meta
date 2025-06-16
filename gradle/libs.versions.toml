@@ -31,6 +31,7 @@ reactorTest = { module = "io.projectreactor:reactor-test", version.ref = "reacto
 
 jacksonDatabind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
 jacksonModuleKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
+jacksonXmlModule = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-xml", version.ref = "jackson" }
 jacksonJsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
 retrofit2 = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit2" }
 retrofit2ConverterJackson = { module = "com.squareup.retrofit2:converter-jackson", version.ref = "retrofit2" }

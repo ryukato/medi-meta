@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+    <header>
+        <resultCode>00</resultCode>
+        <resultMsg>NORMAL SERVICE.</resultMsg>
+    </header>
+    <body>
+        <items>
+            <item>
+                <adtStaDd>20170201</adtStaDd>
+                <chgBfMdsCd>645101680</chgBfMdsCd>
+                <gnlNmCd>248830BIJ</gnlNmCd>
+                <injcPthNm>주사</injcPthNm>
+                <itmNm>비타민케이1주사액(피토나디온주사액)_(10mg/1mL)</itmNm>
+                <lprcEssTpNm>원가보전</lprcEssTpNm>
+                <mdsCd>645101681</mdsCd>
+                <meftDivNo>315</meftDivNo>
+                <mnfEntpNm>대한약품공업(주)</mnfEntpNm>
+                <mxCprc>236</mxCprc>
+                <nomNm>1</nomNm>
+                <payTpNm>급여</payTpNm>
+                <spcGnlTpNm>전문</spcGnlTpNm>
+                <unit>mL/앰플</unit>
+            </item>
+        </items>
+        <numOfRows>100</numOfRows>
+        <pageNo>1</pageNo>
+        <totalCount>1</totalCount>
+    </body>
+</response>

@@ -1,0 +1,33 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 924,
+    "numOfRows": 100,
+    "items": [
+      {
+        "item": {
+          "ENTRPS": "(주)바른한방제약",
+          "ENTRPS_ADRES": "경기도 광주시  광남안로 39-26 ",
+          "ENTRPS_TELNO": null,
+          "PRDUCT": "바른반하",
+          "RTRVL_RESN": "관능(성상) 부적합",
+          "MNFCTUR_NO": "BR-230303-00,BR-230321-02 ,BR-240924-10,BR-241209-12",
+          "MNFCTUR_DT": null,
+          "USGPD": "제조일로부터 36개월",
+          "PACKNG_UNIT": "자사포장단위",
+          "RTRVL_CMMND_DT": null,
+          "RM": null,
+          "RECALL_COMMAND_DATE": "20250612",
+          "OPEN_END_DATE": "20280611",
+          "BIZRNO": "2338107882",
+          "STD_CD": "8800631002105,8800631002112,8800631002129,8800631002136,8800631002143,8800631002150,8800631002167,8800631002174",
+          "ITEM_SEQ": "201606121"
+        }
+      }
+    ]
+  }
+}
