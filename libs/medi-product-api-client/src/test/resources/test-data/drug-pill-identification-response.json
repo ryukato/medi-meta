@@ -1,0 +1,48 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 1,
+    "numOfRows": 100,
+    "items": [
+      {
+        "ITEM_SEQ": "198000058",
+        "ITEM_NAME": "디페인정(디클로페낙나트륨)",
+        "ENTP_SEQ": "19560001",
+        "ENTP_NAME": "동광제약(주)",
+        "CHART": "황색의 장용피 원형정제",
+        "ITEM_IMAGE": "https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/1OiAjxwzCeW",
+        "PRINT_FRONT": "마크",
+        "PRINT_BACK": null,
+        "DRUG_SHAPE": "원형",
+        "COLOR_CLASS1": "노랑",
+        "COLOR_CLASS2": null,
+        "LINE_FRONT": null,
+        "LINE_BACK": null,
+        "LENG_LONG": "7.50",
+        "LENG_SHORT": "7.50",
+        "THICK": "3.0",
+        "IMG_REGIST_TS": "20051108",
+        "CLASS_NO": "01140",
+        "CLASS_NAME": "해열.진통.소염제",
+        "ETC_OTC_NAME": "전문의약품",
+        "ITEM_PERMIT_DATE": "19800329",
+        "FORM_CODE_NAME": "장용성필름코팅정",
+        "MARK_CODE_FRONT_ANAL": "ㄷㄱ,C7,9,6",
+        "MARK_CODE_BACK_ANAL": "",
+        "MARK_CODE_FRONT_IMG": "https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/147938650963600172",
+        "MARK_CODE_BACK_IMG": "",
+        "ITEM_ENG_NAME": "Depain Tab.",
+        "CHANGE_DATE": "20250415",
+        "MARK_CODE_FRONT": "r0248",
+        "MARK_CODE_BACK": null,
+        "EDI_CODE": "645901100",
+        "BIZRNO": "2018644250",
+        "STD_CD": "8806459011008,8806459011015,8806459011022,8806459011039"
+      }
+    ]
+  }
+}

@@ -238,6 +238,108 @@ data class RetrieveStopSaleInformationResponse(
 )
 
 
+data class DrugPillIdentificationResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+
+    @field:JsonProperty("ENTP_SEQ")
+    val enterpriseSequence: String,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("ITEM_IMAGE")
+    val itemImage: String,
+
+    @field:JsonProperty("PRINT_FRONT")
+    val printFront: String,
+
+    @field:JsonProperty("PRINT_BACK")
+    val printBack: String? = null,
+
+    @field:JsonProperty("DRUG_SHAPE")
+    val drugShape: String,
+
+    @field:JsonProperty("COLOR_CLASS1")
+    val colorClass1: String,
+
+    @field:JsonProperty("COLOR_CLASS2")
+    val colorClass2: String? = null,
+
+    @field:JsonProperty("LINE_FRONT")
+    val lineFront: String? = null,
+
+    @field:JsonProperty("LINE_BACK")
+    val lineBack: String? = null,
+
+    @field:JsonProperty("LENG_LONG")
+    val longAxis: String,
+
+    @field:JsonProperty("LENG_SHORT")
+    val shortAxis: String,
+
+    @field:JsonProperty("THICK")
+    val thick: String,
+
+    @field:JsonProperty("IMG_REGIST_TS")
+    val imageCreatedDate: String,
+
+    @field:JsonProperty("CLASS_NO")
+    val classNo: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val className: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("FORM_CODE_NAME")
+    val formCodeName: String,
+
+    @field:JsonProperty("MARK_CODE_FRONT_ANAL")
+    val markCodeFrontAnal: String,
+
+    @field:JsonProperty("MARK_CODE_BACK_ANAL")
+    val markCodeBackAnal: String,
+
+    @field:JsonProperty("MARK_CODE_FRONT_IMG")
+    val markCodeFrontImg: String,
+
+    @field:JsonProperty("MARK_CODE_BACK_IMG")
+    val markCodeBackImg: String,
+
+    @field:JsonProperty("ITEM_ENG_NAME")
+    val itemEngName: String,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String,
+
+    @field:JsonProperty("MARK_CODE_FRONT")
+    val markCodeFront: String,
+
+    @field:JsonProperty("MARK_CODE_BACK")
+    val markCodeBack: String? = null,
+
+    @field:JsonProperty("EDI_CODE")
+    val ediCode: String,
+
+    @field:JsonProperty("BIZRNO")
+    val businessRegistrationNumber: String,
+
+    @field:JsonProperty("STD_CD")
+    val standardCode: String,
+)
+
+
 
 data class RetrieveStopSaleDetailsInformationResponse(
     @field:JsonProperty("ITEM_SEQ")

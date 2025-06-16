@@ -14,6 +14,7 @@ import medi.master.api.client.extension.toQueryParameterMap
 import medi.master.api.client.request.ProductQueryParameters
 import medi.master.api.client.response.BasePriceItemResponse
 import medi.master.api.client.response.BundleItemResponse
+import medi.master.api.client.response.DrugPillIdentificationResponse
 import medi.master.api.client.response.ItemWrapper
 import medi.master.api.client.response.MedicalGenericResponse
 import medi.master.api.client.response.MedicalItemDetailsResponse
@@ -123,6 +124,17 @@ class DrugProductApiClient(
         return response
     }
 
+    suspend fun queryPillIdentification(identifier: String): MedicalGenericResponse<DrugPillIdentificationResponse> {
+        val queryParamMap = createQueryParameterMap(mapOf("item_seq" to identifier))
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_PROD_PILL_IDENTIFICATION_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DrugPillIdentificationResponse>>()
+        return response
+    }
+
     private fun createQueryParameterMap(
         additionalQueryParameters: Map<String, String> = emptyMap()
     ): MultiValueMap<String, String> {
@@ -208,6 +220,8 @@ class DrugProductApiClient(
             "/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03"
         const val QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH =
             "/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeItem03"
+
+        const val QUERY_PROD_PILL_IDENTIFICATION_PATH = "/1471000/MdcinGrnIdntfcInfoService02/getMdcinGrnIdntfcInfoList02"
 
         private val isServiceUnavailable =
             Predicate<HttpStatusCode> { statusCode -> statusCode.isSameCodeAs(HttpStatus.SERVICE_UNAVAILABLE) }

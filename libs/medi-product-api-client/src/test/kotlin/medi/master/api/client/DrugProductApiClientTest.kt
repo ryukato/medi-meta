@@ -10,6 +10,7 @@ import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_BASE_PRI
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_BUNDLE_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_DETAIL_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_LIST_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_PILL_IDENTIFICATION_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_RETRIEVE_STOP_SALE_LIST_PATH
 import medi.master.api.client.config.ProductApiConfigProperties
@@ -233,7 +234,6 @@ class DrugProductApiClientTest {
         assertTrue(response.body.items.first().item.itemSequence.isNotBlank())
     }
 
-
     @Test
     fun testQueryRetrieveStopSaleDetailsListWithClientErrorResponse() = runBlocking {
         val testErrorResponse =
@@ -302,6 +302,38 @@ class DrugProductApiClientTest {
             apiClient.queryRetrieveStopSaleDetailsList()
         }
         assertTrue(error.message?.contains(QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH) ?: false)
+    }
+
+
+    @Test
+    fun testQueryPillIdentification() = runBlocking {
+        val identifier = "198000058"
+        val testSuccessResponse =
+            ClassPathResource("test-data/drug-pill-identification-response.json").getContentAsString(Charset.defaultCharset())
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryPillIdentification(identifier)
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_PROD_PILL_IDENTIFICATION_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertEquals(identifier, response.body.items.first().itemSequence)
     }
 
     private fun createMockResponse(body: String): MockResponse {
