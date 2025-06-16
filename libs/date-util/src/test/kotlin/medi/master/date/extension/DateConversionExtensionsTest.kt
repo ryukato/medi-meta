@@ -13,4 +13,12 @@ class DateConversionExtensionsTest {
         val reverted = epochMillis.toLocalDateTime()
         assertEquals(now, reverted)
     }
+
+    @Test
+    fun testEpochToLocalDateTime() {
+        val now = LocalDateTime.of(1955, 4, 12, 9,31, 1 )
+        val epochMillis = -464655539000L
+        val reverted = epochMillis.toLocalDateTime()
+        assertEquals(now, reverted)
+    }
 }
