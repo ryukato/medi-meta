@@ -6,17 +6,16 @@ import java.net.URLDecoder
 import java.nio.charset.Charset
 import kotlin.test.assertEquals
 import kotlinx.coroutines.runBlocking
-import medi.master.api.client.ProductApprovalApiClient.Companion.QUERY_PROD_BASE_PRICE_PATH
-import medi.master.api.client.ProductApprovalApiClient.Companion.QUERY_PROD_BUNDLE_PATH
-import medi.master.api.client.ProductApprovalApiClient.Companion.QUERY_PROD_DETAIL_PATH
-import medi.master.api.client.ProductApprovalApiClient.Companion.QUERY_PROD_LIST_PATH
-import medi.master.api.client.ProductApprovalApiClient.Companion.QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_BASE_PRICE_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_BUNDLE_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_DETAIL_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_LIST_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH
 import medi.master.api.client.config.ProductApiConfigProperties
 import medi.master.webclient.encodeQueryParameter
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -24,7 +23,7 @@ import org.junit.jupiter.api.assertThrows
 import org.springframework.core.io.ClassPathResource
 import org.springframework.http.MediaType
 
-class ProductApprovalApiClientTest {
+class DrugProductApiClientTest {
     private val mockWebServer: MockWebServer = MockWebServer()
 
     @BeforeEach
@@ -45,7 +44,7 @@ class ProductApprovalApiClientTest {
         mockWebServer.enqueue(mockServerResponse)
         val apiKey = "test".encodeQueryParameter()
         val host = "http://localhost:${mockWebServer.port}"
-        val apiClient = ProductApprovalApiClient(
+        val apiClient = DrugProductApiClient(
             configProperties = ProductApiConfigProperties(
                 serviceKey = apiKey,
                 host = host,
@@ -76,7 +75,7 @@ class ProductApprovalApiClientTest {
 
         val apiKey = "test".encodeQueryParameter()
         val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
-        val apiClient = ProductApprovalApiClient(
+        val apiClient = DrugProductApiClient(
             configProperties = ProductApiConfigProperties(
                 serviceKey = apiKey,
                 host = host,
@@ -112,7 +111,7 @@ class ProductApprovalApiClientTest {
 
         val apiKey = "test".encodeQueryParameter()
         val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
-        val apiClient = ProductApprovalApiClient(
+        val apiClient = DrugProductApiClient(
             configProperties = ProductApiConfigProperties(
                 serviceKey = apiKey,
                 host = host,
@@ -147,7 +146,7 @@ class ProductApprovalApiClientTest {
 
         val apiKey = "test".encodeQueryParameter()
         val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
-        val apiClient = ProductApprovalApiClient(
+        val apiClient = DrugProductApiClient(
             configProperties = ProductApiConfigProperties(
                 serviceKey = apiKey,
                 host = host,
@@ -183,7 +182,7 @@ class ProductApprovalApiClientTest {
 
         val apiKey = "test".encodeQueryParameter()
         val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
-        val apiClient = ProductApprovalApiClient(
+        val apiClient = DrugProductApiClient(
             configProperties = ProductApiConfigProperties(
                 serviceKey = apiKey,
                 host = host,
@@ -214,7 +213,7 @@ class ProductApprovalApiClientTest {
 
         val apiKey = "test".encodeQueryParameter()
         val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
-        val apiClient = ProductApprovalApiClient(
+        val apiClient = DrugProductApiClient(
             configProperties = ProductApiConfigProperties(
                 serviceKey = apiKey,
                 host = host,
@@ -225,7 +224,7 @@ class ProductApprovalApiClientTest {
         val error = assertThrows<RuntimeException> {
             apiClient.queryRetrieveStopSaleDetailsList()
         }
-        assertTrue(error.message?.contains("queryRetrieveStopSaleDetailsList") ?: false)
+        assertTrue(error.message?.contains(QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH) ?: false)
     }
 
 
@@ -238,7 +237,7 @@ class ProductApprovalApiClientTest {
 
         val apiKey = "test".encodeQueryParameter()
         val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
-        val apiClient = ProductApprovalApiClient(
+        val apiClient = DrugProductApiClient(
             configProperties = ProductApiConfigProperties(
                 serviceKey = apiKey,
                 host = host,
@@ -249,7 +248,7 @@ class ProductApprovalApiClientTest {
         val error = assertThrows<RuntimeException> {
             apiClient.queryRetrieveStopSaleDetailsList()
         }
-        assertTrue(error.message?.contains("queryRetrieveStopSaleDetailsList") ?: false)
+        assertTrue(error.message?.contains(QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH) ?: false)
     }
 
     @Test
@@ -261,7 +260,7 @@ class ProductApprovalApiClientTest {
 
         val apiKey = "test".encodeQueryParameter()
         val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
-        val apiClient = ProductApprovalApiClient(
+        val apiClient = DrugProductApiClient(
             configProperties = ProductApiConfigProperties(
                 serviceKey = apiKey,
                 host = host,
@@ -272,7 +271,7 @@ class ProductApprovalApiClientTest {
         val error = assertThrows<RuntimeException> {
             apiClient.queryRetrieveStopSaleDetailsList()
         }
-        assertTrue(error.message?.contains("queryRetrieveStopSaleDetailsList") ?: false)
+        assertTrue(error.message?.contains(QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH) ?: false)
     }
 
     private fun createMockResponse(body: String): MockResponse {

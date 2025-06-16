@@ -9,3 +9,14 @@ fun Map<String, String>.toMultiValueMap(): MultiValueMap<String, String> {
 }
 
 fun String.encodeQueryParameter(): String = URLEncoder.encode(this, "UTF-8")
+
+fun String.toQueryParameterMap(): Map<String, String> {
+    return this.split("&").associate {
+        val (key, value) = it.split("=")
+        key to value
+    }
+}
+
+fun Map<String, Any>.excludeByKey(vararg keys: String): Map<String, Any> {
+    return this.filterKeys { it !in keys }
+}
