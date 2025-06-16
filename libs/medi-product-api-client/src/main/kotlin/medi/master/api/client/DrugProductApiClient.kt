@@ -18,6 +18,7 @@ import medi.master.api.client.response.ItemWrapper
 import medi.master.api.client.response.MedicalGenericResponse
 import medi.master.api.client.response.MedicalItemDetailsResponse
 import medi.master.api.client.response.MedicalItemResponse
+import medi.master.api.client.response.RetrieveStopSaleDetailsInformationResponse
 import medi.master.api.client.response.RetrieveStopSaleInformationResponse
 import medi.master.core.domain.common.excepion.InvalidRequestDataFetchException
 import medi.master.core.domain.common.excepion.PermanentDataFetchException
@@ -100,14 +101,25 @@ class DrugProductApiClient(
         return xmlMapper.readValue(response, dataTypeRef)
     }
 
-    suspend fun queryRetrieveStopSaleDetailsList(): MedicalGenericResponse<ItemWrapper<RetrieveStopSaleInformationResponse>> {
+    suspend fun queryRetrieveStopSaleList(): MedicalGenericResponse<ItemWrapper<RetrieveStopSaleInformationResponse>> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_PROD_RETRIEVE_STOP_SALE_LIST_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<ItemWrapper<RetrieveStopSaleInformationResponse>>>()
+        return response
+    }
+
+    suspend fun queryRetrieveStopSaleDetailsList(): MedicalGenericResponse<ItemWrapper<RetrieveStopSaleDetailsInformationResponse>> {
         val queryParamMap = createQueryParameterMap()
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
             .retrieve()
             .onStatus(HttpStatusCode::isError, responseErrorHandler())
-            .awaitBody<MedicalGenericResponse<ItemWrapper<RetrieveStopSaleInformationResponse>>>()
+            .awaitBody<MedicalGenericResponse<ItemWrapper<RetrieveStopSaleDetailsInformationResponse>>>()
         return response
     }
 
@@ -192,6 +204,8 @@ class DrugProductApiClient(
         const val QUERY_PROD_DETAIL_PATH = "/1471000/DrugPrdtPrmsnInfoService06/getDrugPrdtPrmsnDtlInq05"
         const val QUERY_PROD_BUNDLE_PATH = "/1471000/DrbBundleInfoService02/getDrbBundleList02"
         const val QUERY_PROD_BASE_PRICE_PATH = "/B551182/dgamtCrtrInfoService1.2/getDgamtList"
+        const val QUERY_PROD_RETRIEVE_STOP_SALE_LIST_PATH =
+            "/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgelList03"
         const val QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH =
             "/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeItem03"
 

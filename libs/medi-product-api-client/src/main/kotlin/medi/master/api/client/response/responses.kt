@@ -223,6 +223,29 @@ data class RetrieveStopSaleInformationResponse(
     val businessRegistrationNumber: String,
     @field:JsonProperty("PRDUCT")
     val itemName: String,
+    @field:JsonProperty("ENTRPS")
+    val enterpriseName: String,
+    @field:JsonProperty("ENFRC_YN")
+    val enforceYn: String,
+    @field:JsonProperty("RTRVL_RESN")
+    val retrieveReason: String,
+    @field:JsonProperty("RTRVL_CMMND_DT")
+    val retrieveCommandDate: String? = null,
+    @field:JsonProperty("RECALL_COMMAND_DATE")
+    val recallCommandDate: String,
+    @field:JsonProperty("STD_CD")
+    val standardCode: String,
+)
+
+
+
+data class RetrieveStopSaleDetailsInformationResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+    @field:JsonProperty("BIZRNO")
+    val businessRegistrationNumber: String,
+    @field:JsonProperty("PRDUCT")
+    val itemName: String,
     @field:JsonProperty("USGPD")
     val validityPeriod: String,
     @field:JsonProperty("PACKNG_UNIT")

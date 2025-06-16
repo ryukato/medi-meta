@@ -11,6 +11,7 @@ import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_BUNDLE_P
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_DETAIL_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_LIST_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_RETRIEVE_STOP_SALE_LIST_PATH
 import medi.master.api.client.config.ProductApiConfigProperties
 import medi.master.webclient.encodeQueryParameter
 import okhttp3.mockwebserver.MockResponse
@@ -172,6 +173,35 @@ class DrugProductApiClientTest {
         assertEquals(ediCode, response.body.items.first().item.drugCode)
     }
 
+    @Test
+    fun testQueryRetrieveStopSaleList() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/retrieve-stop-sale-list.json").getContentAsString(Charset.defaultCharset())
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryRetrieveStopSaleList()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_PROD_RETRIEVE_STOP_SALE_LIST_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().item.itemSequence.isNotBlank())
+    }
 
     @Test
     fun testQueryRetrieveStopSaleDetailsList() = runBlocking {
