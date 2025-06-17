@@ -122,25 +122,25 @@ data class BundleItemResponse(
     val trustItemName: String,
 
     @field:JsonProperty("trustMainingr")
-    val trustMainingr: String,
+    val trustMainIngredient: String,
 
     @field:JsonProperty("trustQntList")
     val trustQntList: String,
 
     @field:JsonProperty("trustEntpName")
-    val trustEntpName: String,
+    val trustEnterpriseName: String,
 
     @field:JsonProperty("trustManuf")
-    val trustManuf: String,
+    val trustManufacturer: String,
 
     @field:JsonProperty("trustItemPermitDate")
     val trustItemPermitDate: String,
 
     @field:JsonProperty("trustHiraMainingrCode")
-    val trustHiraMainingrCode: String,
+    val trustHiraMainIngredientCode: String,
 
     @field:JsonProperty("trustHiraPrductCode")
-    val trustHiraPrductCode: String,
+    val trustHiraProductCode: String,
 
     @field:JsonProperty("trustAtcCode")
     val trustAtcCode: String,
@@ -149,25 +149,25 @@ data class BundleItemResponse(
     val trustCancelName: String,
 
     @field:JsonProperty("cnsgnItemSeq")
-    val cnsgnItemSeq: String,
+    val itemSequence: String,
 
     @field:JsonProperty("cnsgnItemName")
-    val cnsgnItemName: String,
+    val itemName: String,
 
     @field:JsonProperty("cnsgnEntpName")
-    val cnsgnEntpName: String,
+    val enterpriseName: String,
 
     @field:JsonProperty("cnsgnManuf")
-    val cnsgnManuf: String,
+    val manufacturer: String,
 
     @field:JsonProperty("cnsgnItemPermitDate")
-    val cnsgnItemPermitDate: String,
+    val itemPermitDate: String,
 
     @field:JsonProperty("cnsgnHiraPrductCode")
-    val cnsgnHiraPrductCode: String? = null,
+    val hiraProductCode: String? = null,
 
     @field:JsonProperty("cnsgnCancelName")
-    val cnsgnCancelName: String
+    val cancelName: String
 )
 
 
@@ -372,6 +372,7 @@ data class RetrieveStopSaleDetailsInformationResponse(
     @field:JsonProperty("STD_CD")
     val standardCode: String,
 )
+
 data class DurConcomitantUseContraindicationsResponse(
 
     @field:JsonProperty("ITEM_SEQ")
