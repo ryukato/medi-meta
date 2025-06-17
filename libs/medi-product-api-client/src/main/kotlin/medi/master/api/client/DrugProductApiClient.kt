@@ -75,8 +75,8 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryProductDetails(identifier: String): MedicalGenericResponse<MedicalItemDetailsResponse> {
-        val queryParamMap = createQueryParameterMap(mapOf("item_seq" to identifier))
+    suspend fun queryProductDetails(itemSequence: String): MedicalGenericResponse<MedicalItemDetailsResponse> {
+        val queryParamMap = createQueryParameterMap(mapOf("item_seq" to itemSequence))
 
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_PROD_DETAIL_PATH, queryParamMap))
@@ -132,8 +132,8 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryPillIdentification(identifier: String): MedicalGenericResponse<DrugPillIdentificationResponse> {
-        val queryParamMap = createQueryParameterMap(mapOf("item_seq" to identifier))
+    suspend fun queryPillIdentification(itemSequence: String): MedicalGenericResponse<DrugPillIdentificationResponse> {
+        val queryParamMap = createQueryParameterMap(mapOf("item_seq" to itemSequence))
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_PROD_PILL_IDENTIFICATION_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -143,8 +143,9 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryDurConcomitantUseContraindications(): MedicalGenericResponse<DurConcomitantUseContraindicationsResponse> {
-        val queryParamMap = createQueryParameterMap()
+    suspend fun queryDurConcomitantUseContraindications(itemSequence: String? = null): MedicalGenericResponse<DurConcomitantUseContraindicationsResponse> {
+        val identifierQueryParam = itemSequence?.let { mapOf("itemSeq" to it) } ?: emptyMap()
+        val queryParamMap = createQueryParameterMap(identifierQueryParam)
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_DUR_CONCOMITANT_USE_CONTRAINDICATIONS_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -154,8 +155,9 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryPregnancyContraindications(): MedicalGenericResponse<DurPregnancyContraindicationResponse> {
-        val queryParamMap = createQueryParameterMap()
+    suspend fun queryDurPregnancyContraindications(itemSequence: String? = null): MedicalGenericResponse<DurPregnancyContraindicationResponse> {
+        val identifierQueryParam = itemSequence?.let { mapOf("itemSeq" to it) } ?: emptyMap()
+        val queryParamMap = createQueryParameterMap(identifierQueryParam)
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_DUR_PREGNANCY_CONTRAINDICATIONS_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -165,8 +167,9 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryDurDosagePrecautions(): MedicalGenericResponse<DurDosePrecautionResponse> {
-        val queryParamMap = createQueryParameterMap()
+    suspend fun queryDurDosagePrecautions(itemSequence: String? = null): MedicalGenericResponse<DurDosePrecautionResponse> {
+        val identifierQueryParam = itemSequence?.let { mapOf("itemSeq" to it) } ?: emptyMap()
+        val queryParamMap = createQueryParameterMap(identifierQueryParam)
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_DUR_DOS_PRECAUTION_CONTRAINDICATIONS_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -176,8 +179,9 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryDurDurationOfUsePrecautions(): MedicalGenericResponse<DurationOfUsePrecautionsResponse> {
-        val queryParamMap = createQueryParameterMap()
+    suspend fun queryDurDurationOfUsePrecautions(itemSequence: String? = null): MedicalGenericResponse<DurationOfUsePrecautionsResponse> {
+        val identifierQueryParam = itemSequence?.let { mapOf("itemSeq" to it) } ?: emptyMap()
+        val queryParamMap = createQueryParameterMap(identifierQueryParam)
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_DUR_DURATION_OF_USE_CAUTIONS_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -187,8 +191,9 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryElderlyPrecautions(): MedicalGenericResponse<DurElderlyPrecautionsResponse> {
-        val queryParamMap = createQueryParameterMap()
+    suspend fun queryElderlyPrecautions(identifier: String? = null): MedicalGenericResponse<DurElderlyPrecautionsResponse> {
+        val identifierQueryParam = identifier?.let { mapOf("itemSeq" to it) } ?: emptyMap()
+        val queryParamMap = createQueryParameterMap(identifierQueryParam)
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_DUR_ELDERLY_PRECAUTIONS_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -198,8 +203,9 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryDurAgeSpecificContraindications(): MedicalGenericResponse<DurGeriatricPrecautionResponse> {
-        val queryParamMap = createQueryParameterMap()
+    suspend fun queryDurAgeSpecificContraindications(itemSequence: String? = null): MedicalGenericResponse<DurGeriatricPrecautionResponse> {
+        val identifierQueryParam = itemSequence?.let { mapOf("itemSeq" to it) } ?: emptyMap()
+        val queryParamMap = createQueryParameterMap(identifierQueryParam)
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_DUR_AGE_SPECIFIC_CONTRAINDICATIONS_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -209,8 +215,9 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryDurTherapeuticDuplication(): MedicalGenericResponse<DurTherapeuticDuplicationResponse> {
-        val queryParamMap = createQueryParameterMap()
+    suspend fun queryDurTherapeuticDuplication(itemSequence: String? = null): MedicalGenericResponse<DurTherapeuticDuplicationResponse> {
+        val identifierQueryParam = itemSequence?.let { mapOf("itemSeq" to it) } ?: emptyMap()
+        val queryParamMap = createQueryParameterMap(identifierQueryParam)
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_DUR_THERAPEUTIC_DUPLICATION_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -220,8 +227,9 @@ class DrugProductApiClient(
         return response
     }
 
-    suspend fun queryDurSplittingPrecaution(): MedicalGenericResponse<DurSplitCautionResponse> {
-        val queryParamMap = createQueryParameterMap()
+    suspend fun queryDurSplittingPrecaution(itemSequence: String? = null): MedicalGenericResponse<DurSplitCautionResponse> {
+        val identifierQueryParam = itemSequence?.let { mapOf("itemSeq" to it) } ?: emptyMap()
+        val queryParamMap = createQueryParameterMap(identifierQueryParam)
         val response = webClient.get()
             .uri(createBuildUriFunction(QUERY_DUR_SPLITTING_PRECAUTION_PATH, queryParamMap))
             .accept(MediaType.APPLICATION_JSON)
@@ -332,10 +340,10 @@ class DrugProductApiClient(
             "/1471000/DURPrdlstInfoService03/getMdctnPdAtentInfoList03"
 
         const val QUERY_DUR_ELDERLY_PRECAUTIONS_PATH =
-            "/1471000/DURPrdlstInfoService03/getMdctnPdAtentInfoList03"
+            "/1471000/DURPrdlstInfoService03/getOdsnAtentInfoList03"
 
         const val QUERY_DUR_AGE_SPECIFIC_CONTRAINDICATIONS_PATH =
-            "/1471000/DURPrdlstInfoService03/getMdctnPdAtentInfoList03"
+            "/1471000/DURPrdlstInfoService03/getSpcifyAgrdeTabooInfoList03"
 
         const val QUERY_DUR_THERAPEUTIC_DUPLICATION_PATH =
             "/1471000/DURPrdlstInfoService03/getEfcyDplctInfoList03"

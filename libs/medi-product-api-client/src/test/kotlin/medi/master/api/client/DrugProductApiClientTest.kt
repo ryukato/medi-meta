@@ -378,7 +378,7 @@ class DrugProductApiClientTest {
     }
 
     @Test
-    fun testQueryPregnancyContraindications() = runBlocking {
+    fun testQueryDurPregnancyContraindications() = runBlocking {
         val testSuccessResponse =
             ClassPathResource("test-data/dur-pregnancy-contrainedication-response.json").getContentAsString(
                 Charset.defaultCharset()
@@ -396,7 +396,7 @@ class DrugProductApiClientTest {
             )
         )
 
-        val response = apiClient.queryPregnancyContraindications()
+        val response = apiClient.queryDurPregnancyContraindications()
         val recordedRequest = mockWebServer.takeRequest()
         assertEquals(
             QUERY_DUR_PREGNANCY_CONTRAINDICATIONS_PATH,
@@ -492,7 +492,7 @@ class DrugProductApiClientTest {
             )
         )
 
-        val response = apiClient.queryDurDurationOfUsePrecautions()
+        val response = apiClient.queryElderlyPrecautions()
         val recordedRequest = mockWebServer.takeRequest()
         assertEquals(
             QUERY_DUR_ELDERLY_PRECAUTIONS_PATH,
