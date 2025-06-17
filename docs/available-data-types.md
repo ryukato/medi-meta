@@ -343,6 +343,7 @@ curl -X 'GET' \
   * 노인주의 - 일정 연령(보통 만 65세 이상)의 고령자에게 사용 시 특별한 주의가 필요한 성분 정보
   * 특정연령대금기 - 특정 연령의 대상자에게 사용 시 특별한 주의가 필요한 성분 정보
   * 효능군중복 - 효능의 중복이 있는 성분 정보
+  * 서방정분할주의 - 서방형 제제(서서히 약물이 방출되는 제제)의 분할 사용에 주의가 필요한 성분 정보
 * "의약품 제품 허가 정보"와는 별도로 조회하여 저장한다.
 * "의약품 제품 허가 정보"의 상세 항목 중, "MAIN_ITEM_INGR"내의 코드(예, "M089049")와 일치하는 항목들을 조회하여 의약품 정보와 함께 제공
 ### DUR성분정보의 병용금기 정보
@@ -360,27 +361,53 @@ curl -X 'GET' \
 #### Sample
 ```json
 {
-    "item": {
-        "TYPE_NAME": "병용금기",
-        "MIX_TYPE": "단일",
-        "INGR_CODE": "D000762",
-        "INGR_ENG_NAME": "Itraconazole",
-        "INGR_KOR_NAME": "이트라코나졸",
-        "MIX": "",
-        "ORI": "[M083733]이트라코나졸제피과립/[M083734]이트라코나졸/[M092870]이트라코나졸고체분산체/[M201487]이트라코나졸고체분산/[M201624]제피이트라코나졸과립",
-        "CLASS": "[06290]기타의 화학요법제",
-        "MIXTURE_MIX_TYPE": "단일",
-        "MIXTURE_INGR_CODE": "D000027",
-        "MIXTURE_INGR_ENG_NAME": "Simvastatin",
-        "MIXTURE_INGR_KOR_NAME": "심바스타틴",
-        "MIXTURE_MIX": "",
-        "MIXTURE_ORI": "[M089710]심바스타틴",
-        "MIXTURE_CLASS": "[02180]동맥경화용제",
-        "NOTIFICATION_DATE": "20090303",
-        "PROHBT_CONTENT": "횡문근융해증",
-        "REMARK": null,
-        "DEL_YN": "정상"
+  "items": [
+    {
+      "DUR_SEQ": "83",
+      "TYPE_CODE": "A",
+      "TYPE_NAME": "병용금기",
+      "MIX": "단일",
+      "INGR_CODE": "D000256",
+      "INGR_KOR_NAME": "에리트로마이신스티노프레이트",
+      "INGR_ENG_NAME": "Erythromycin Stinoprate",
+      "MIX_INGR": null,
+      "ITEM_SEQ": "200704461",
+      "ITEM_NAME": "에리시스정(에리트로마이신스티노프레이트)(수출용)",
+      "ENTP_NAME": "(주)유영제약",
+      "CHART": "백색 또는 미황색의 장방형 정제",
+      "FORM_CODE": "010101",
+      "ETC_OTC_CODE": "02",
+      "CLASS_CODE": "06150",
+      "FORM_NAME": "나정",
+      "ETC_OTC_NAME": "전문의약품",
+      "CLASS_NAME": "주로 그람양성, 음성균, 리케치아, 비루스에 작용하는 것",
+      "MAIN_INGR": "[M257644]에리트로마이신스티노프레이트",
+      "MIXTURE_DUR_SEQ": "83",
+      "MIXTURE_MIX": "단일",
+      "MIXTURE_INGR_CODE": "D000713",
+      "MIXTURE_INGR_KOR_NAME": "염산린코마이신",
+      "MIXTURE_INGR_ENG_NAME": "Lincomycin Hydrochloride",
+      "MIXTURE_ITEM_SEQ": "200302561",
+      "MIXTURE_ITEM_NAME": "리코민주(염산린코마이신)(수출용)",
+      "MIXTURE_ENTP_NAME": "대한뉴팜(주)",
+      "MIXTURE_FORM_CODE": "210101",
+      "MIXTURE_ETC_OTC_CODE": "02",
+      "MIXTURE_CLASS_CODE": "06110",
+      "MIXTURE_FORM_NAME": "용액주사제",
+      "MIXTURE_ETC_OTC_NAME": "전문의약품",
+      "MIXTURE_CLASS_NAME": "주로 그람양성균에 작용하는 것",
+      "MIXTURE_MAIN_INGR": "[M020043]염산린코마이신",
+      "NOTIFICATION_DATE": "20090303",
+      "PROHBT_CONTENT": "병용을 하여도 항균작용이 증가되지 않음\n",
+      "REMARK": null,
+      "ITEM_PERMIT_DATE": "20070418",
+      "MIXTURE_ITEM_PERMIT_DATE": "20031030",
+      "MIXTURE_CHART": "무색 내지 미황색의 투명한 액이 들어있는 갈색의 앰플\r\n",
+      "CHANGE_DATE": "20200806",
+      "MIXTURE_CHANGE_DATE": "20201016",
+      "BIZRNO": "3018109728"
     }
+  ]
 }
 ```
 
@@ -399,23 +426,31 @@ curl -X 'GET' \
 #### Sample
 ```json
 {
-    "item": {
-        "DUR_SEQ": "1893",
-        "TYPE_NAME": "임부금기",
-        "MIX_TYPE": "단일",
-        "INGR_CODE": "D000100",
-        "INGR_ENG_NAME": "Progesterone",
-        "INGR_NAME": "프로게스테론",
-        "MIX_INGR": "",
-        "ORI_INGR": "[M040719]프로게스테론/[M086429]미분화프로게스테론/[M252921]프로게스테론(미분화)",
-        "CLASS_NAME": "[02470]난포호르몬제 및 황체호르몬제",
-        "FORM_NAME": "연질캡슐제, 현탁상/유화주사제/용액용분말주사제/서방성현탁액용분말주사제/용액용동결건조분말주사제/현탁액용동결건조분말주사제/서방성현탁액용동결건조분말주사제/리포좀화현탁액용동결건조분말주사제/현탁액주사제/서방성현탁액성주사제/용액주사제",
-        "GRADE": "1등급",
-        "NOTIFICATION_DATE": "20081211",
-        "PROHBT_CONTENT": "임부에 대한 안전성 미확립.",
-        "REMARK": "경구",
-        "DEL_YN": "정상"
+  "items": [
+    {
+      "TYPE_NAME": "임부금기",
+      "MIX_TYPE": "단일",
+      "INGR_CODE": "D000199",
+      "INGR_ENG_NAME": "Dexamethasone",
+      "INGR_NAME": "덱사메타손",
+      "MIX_INGR": null,
+      "FORM_NAME": "나정",
+      "ITEM_SEQ": "196300064",
+      "ITEM_NAME": "부광덱사메타손정",
+      "ITEM_PERMIT_DATE": "19630508",
+      "ENTP_NAME": "부광약품(주)",
+      "CHART": "백색의 정제",
+      "CLASS_CODE": "02450",
+      "CLASS_NAME": "부신호르몬제",
+      "ETC_OTC_NAME": "전문의약품",
+      "MAIN_INGR": "[M040080]덱사메타손",
+      "NOTIFICATION_DATE": "20130712",
+      "PROHBT_CONTENT": "\"동물실험에서 기형발생 작용 보고.태아의 성장지체, 언청이의 위험 등의 증가, 뇌성장 및 발달에 영향 가능성. 신생아에 부신부전증 유발 가능성.\"",
+      "REMARK": null,
+      "INGR_ENG_NAME_FULL": "Dexamethasone(덱사메타손)",
+      "CHANGE_DATE": "20250507"
     }
+  ]
 }
 ```
 
@@ -434,23 +469,31 @@ curl -X 'GET' \
 #### Sample
 ```json
 {
-    "item": {
-        "DUR_SEQ": "636",
-        "TYPE_NAME": "용량주의",
-        "MIX_TYPE": "단일",
-        "INGR_CODE": "D000592",
-        "INGR_ENG_NAME": "Triazolam",
-        "INGR_NAME": "트리아졸람",
-        "MIX_INGR": "",
-        "ORI_INGR": "[I005603]트리아졸람/[M088380]트리아졸람",
-        "CLASS_NAME": "[01120]최면진정제",
-        "FORM_NAME": "정제",
-        "MAX_QTY": "0.25밀리그램",
-        "NOTIFICATION_DATE": "20130703",
-        "PROHBT_CONTENT": null,
-        "REMARK": null,
-        "DEL_YN": "정상"
+  "items": [
+    {
+      "TYPE_NAME": "용량주의",
+      "MIX_TYPE": "단일",
+      "INGR_CODE": "D000893",
+      "INGR_ENG_NAME": "Chlorpheniramine Maleate",
+      "INGR_NAME": "클로르페니라민말레산염",
+      "MIX_INGR": null,
+      "FORM_NAME": "나정",
+      "ITEM_SEQ": "196000011",
+      "ITEM_NAME": "페니라민정(클로르페니라민말레산염)",
+      "ITEM_PERMIT_DATE": "19601010",
+      "ENTP_NAME": "(주)유한양행",
+      "CHART": "미황색의 원형 정제",
+      "CLASS_CODE": "01410",
+      "CLASS_NAME": "항히스타민제",
+      "ETC_OTC_NAME": "일반의약품",
+      "MAIN_INGR": "[M223211]클로르페니라민말레산염",
+      "NOTIFICATION_DATE": "20180831",
+      "PROHBT_CONTENT": "클로르페니라민말레산염 24mg",
+      "REMARK": null,
+      "INGR_ENG_NAME_FULL": "Chlorpheniramine Maleate(클로르페니라민말레산염)",
+      "CHANGE_DATE": "20190826"
     }
+  ]
 }
 ```
 
@@ -469,23 +512,31 @@ curl -X 'GET' \
 #### Sample
 ```json
 {
-    "item": {
-        "DUR_SEQ": "459",
-        "TYPE_NAME": "투여기간주의",
-        "MIX_TYPE": "단일",
-        "INGR_CODE": "D000592",
-        "INGR_ENG_NAME": "Triazolam",
-        "INGR_NAME": "트리아졸람",
-        "MIX_INGR": "",
-        "ORI_INGR": "[I005603]트리아졸람/[M088380]트리아졸람",
-        "CLASS_NAME": "[01120]최면진정제",
-        "FORM_NAME": "정제",
-        "MAX_DOSAGE_TERM": "21일",
-        "NOTIFICATION_DATE": "20100511",
-        "PROHBT_CONTENT": null,
-        "REMARK": null,
-        "DEL_YN": "정상"
+  "items": [
+    {
+      "TYPE_NAME": "투여기간주의",
+      "MIX_TYPE": "단일",
+      "INGR_CODE": "D000425",
+      "INGR_ENG_NAME": "Metoclopramide",
+      "INGR_NAME": "메토클로프라미드",
+      "MIX_INGR": null,
+      "FORM_NAME": "필름코팅정",
+      "ITEM_SEQ": "197200484",
+      "ITEM_NAME": "맥페란정(메토클로프라미드)",
+      "ITEM_PERMIT_DATE": "19720210",
+      "ENTP_NAME": "동화약품(주)",
+      "CHART": "흰색의 원형 필름코팅정",
+      "CLASS_CODE": "02390",
+      "CLASS_NAME": "기타의 소화기관용약",
+      "ETC_OTC_NAME": "전문의약품",
+      "MAIN_INGR": "[M050465]메토클로프라미드",
+      "NOTIFICATION_DATE": "20150331",
+      "PROHBT_CONTENT": null,
+      "REMARK": null,
+      "INGR_ENG_NAME_FULL": "Metoclopramide(메토클로프라미드)",
+      "CHANGE_DATE": "20140103"
     }
+  ]
 }
 ```
 
@@ -572,23 +623,61 @@ curl -X 'GET' \
 #### Sample
 ```json
 {
-    "item": {
-        "DUR_SEQ": "2680",
-        "TYPE_NAME": "효능군중복",
-        "MIX_TYPE": "단일",
-        "INGR_CODE": "D000647",
-        "INGR_ENG_NAME": "Cetirizine",
-        "INGR_NAME": "세티리진",
-        "MIX_INGR": "",
-        "ORI_INGR": "[M051285]염산세티리진/[M222857]세티리진염산염",
-        "CLASS_NAME": "[01410]항히스타민제",
-        "EFFECT_CODE": "호흡기관용약",
-        "NOTIFICATION_DATE": "20131227",
-        "PROHBT_CONTENT": null,
-        "REMARK": null,
-        "DEL_YN": "정상",
-        "SERS_NAME": "항히스타민제"
+  "item": {
+    "DUR_SEQ": "2680",
+    "TYPE_NAME": "효능군중복",
+    "MIX_TYPE": "단일",
+    "INGR_CODE": "D000647",
+    "INGR_ENG_NAME": "Cetirizine",
+    "INGR_NAME": "세티리진",
+    "MIX_INGR": "",
+    "ORI_INGR": "[M051285]염산세티리진/[M222857]세티리진염산염",
+    "CLASS_NAME": "[01410]항히스타민제",
+    "EFFECT_CODE": "호흡기관용약",
+    "NOTIFICATION_DATE": "20131227",
+    "PROHBT_CONTENT": null,
+    "REMARK": null,
+    "DEL_YN": "정상",
+    "SERS_NAME": "항히스타민제"
+  }
+}
+```
+
+### DUR성분정보의 서방정분할주의 정보
+#### URL
+* https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getSeobangjeongPartitnAtentInfoList03
+### Constraints
+* max request size(numOfRows): 100
+
+#### Fetching sample
+```shell
+curl -X 'GET' \
+  'https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getSeobangjeongPartitnAtentInfoList03?serviceKey=mf%2Fad0132hYGXI2kLeBAJ7ml%2BDdVw2EHtFNIk6%2FsuAJZSAkj4ZyJON%2FYMHJuzC4Vvo9Q%2BQaJFIim3yx2Q4nwPA%3D%3D&pageNo=1&numOfRows=100&type=json&itemSeq=197100081' \
+  -H 'accept: */*' | jq
+```
+#### Sample
+```json
+{
+  "items": [
+    {
+      "TYPE_NAME": "분할주의",
+      "ITEM_SEQ": "197100081",
+      "ITEM_NAME": "키모랄에스정",
+      "ITEM_PERMIT_DATE": "1971May6th",
+      "FORM_CODE_NAME": "장용성필름코팅정",
+      "ENTP_NAME": "(주)에이프로젠바이오로직스",
+      "CHART": "내수용 : 연녹색의 원형 장용성 필름코팅정, 수출용 : 적색의 원형 장용성 필름코팅정",
+      "CLASS_CODE": "03950 ",
+      "CLASS_NAME": "효소제제",
+      "ETC_OTC_NAME": "일반의약품",
+      "MIX": "복합",
+      "MAIN_INGR": "[M051649]결정트립신/[M095415]브로멜라인/[M095415]브로멜라인/[M051649]결정트립신",
+      "PROHBT_CONTENT": "분할불가",
+      "REMARK": null,
+      "CHANGE_DATE": "20210629",
+      "BIZRNO": "2188100518"
     }
+  ]
 }
 ```
 
