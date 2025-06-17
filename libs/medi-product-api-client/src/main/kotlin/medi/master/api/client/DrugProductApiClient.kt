@@ -15,6 +15,14 @@ import medi.master.api.client.request.ProductQueryParameters
 import medi.master.api.client.response.BasePriceItemResponse
 import medi.master.api.client.response.BundleItemResponse
 import medi.master.api.client.response.DrugPillIdentificationResponse
+import medi.master.api.client.response.DurConcomitantUseContraindicationsResponse
+import medi.master.api.client.response.DurDosePrecautionResponse
+import medi.master.api.client.response.DurElderlyPrecautionsResponse
+import medi.master.api.client.response.DurGeriatricPrecautionResponse
+import medi.master.api.client.response.DurPregnancyContraindicationResponse
+import medi.master.api.client.response.DurSplitCautionResponse
+import medi.master.api.client.response.DurTherapeuticDuplicationResponse
+import medi.master.api.client.response.DurationOfUsePrecautionsResponse
 import medi.master.api.client.response.ItemWrapper
 import medi.master.api.client.response.MedicalGenericResponse
 import medi.master.api.client.response.MedicalItemDetailsResponse
@@ -135,6 +143,94 @@ class DrugProductApiClient(
         return response
     }
 
+    suspend fun queryDurConcomitantUseContraindications(): MedicalGenericResponse<DurConcomitantUseContraindicationsResponse> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_DUR_CONCOMITANT_USE_CONTRAINDICATIONS_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DurConcomitantUseContraindicationsResponse>>()
+        return response
+    }
+
+    suspend fun queryPregnancyContraindications(): MedicalGenericResponse<DurPregnancyContraindicationResponse> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_DUR_PREGNANCY_CONTRAINDICATIONS_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DurPregnancyContraindicationResponse>>()
+        return response
+    }
+
+    suspend fun queryDurDosagePrecautions(): MedicalGenericResponse<DurDosePrecautionResponse> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_DUR_DOS_PRECAUTION_CONTRAINDICATIONS_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DurDosePrecautionResponse>>()
+        return response
+    }
+
+    suspend fun queryDurDurationOfUsePrecautions(): MedicalGenericResponse<DurationOfUsePrecautionsResponse> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_DUR_DURATION_OF_USE_CAUTIONS_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DurationOfUsePrecautionsResponse>>()
+        return response
+    }
+
+    suspend fun queryElderlyPrecautions(): MedicalGenericResponse<DurElderlyPrecautionsResponse> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_DUR_ELDERLY_PRECAUTIONS_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DurElderlyPrecautionsResponse>>()
+        return response
+    }
+
+    suspend fun queryDurAgeSpecificContraindications(): MedicalGenericResponse<DurGeriatricPrecautionResponse> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_DUR_AGE_SPECIFIC_CONTRAINDICATIONS_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DurGeriatricPrecautionResponse>>()
+        return response
+    }
+
+    suspend fun queryDurTherapeuticDuplication(): MedicalGenericResponse<DurTherapeuticDuplicationResponse> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_DUR_THERAPEUTIC_DUPLICATION_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DurTherapeuticDuplicationResponse>>()
+        return response
+    }
+
+    suspend fun queryDurSplittingPrecaution(): MedicalGenericResponse<DurSplitCautionResponse> {
+        val queryParamMap = createQueryParameterMap()
+        val response = webClient.get()
+            .uri(createBuildUriFunction(QUERY_DUR_SPLITTING_PRECAUTION_PATH, queryParamMap))
+            .accept(MediaType.APPLICATION_JSON)
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, responseErrorHandler())
+            .awaitBody<MedicalGenericResponse<DurSplitCautionResponse>>()
+        return response
+    }
+
     private fun createQueryParameterMap(
         additionalQueryParameters: Map<String, String> = emptyMap()
     ): MultiValueMap<String, String> {
@@ -221,8 +317,31 @@ class DrugProductApiClient(
         const val QUERY_PROD_RETRIEVE_STOP_SALE_DETAILS_LIST_PATH =
             "/1471000/MdcinRtrvlSleStpgeInfoService04/getMdcinRtrvlSleStpgeItem03"
 
-        const val QUERY_PROD_PILL_IDENTIFICATION_PATH = "/1471000/MdcinGrnIdntfcInfoService02/getMdcinGrnIdntfcInfoList02"
+        const val QUERY_PROD_PILL_IDENTIFICATION_PATH =
+            "/1471000/MdcinGrnIdntfcInfoService02/getMdcinGrnIdntfcInfoList02"
+        const val QUERY_DUR_CONCOMITANT_USE_CONTRAINDICATIONS_PATH =
+            "/1471000/DURPrdlstInfoService03/getUsjntTabooInfoList03"
 
+        const val QUERY_DUR_PREGNANCY_CONTRAINDICATIONS_PATH =
+            "/1471000/DURPrdlstInfoService03/getPwnmTabooInfoList03"
+
+        const val QUERY_DUR_DOS_PRECAUTION_CONTRAINDICATIONS_PATH =
+            "/1471000/DURPrdlstInfoService03/getCpctyAtentInfoList03"
+
+        const val QUERY_DUR_DURATION_OF_USE_CAUTIONS_PATH =
+            "/1471000/DURPrdlstInfoService03/getMdctnPdAtentInfoList03"
+
+        const val QUERY_DUR_ELDERLY_PRECAUTIONS_PATH =
+            "/1471000/DURPrdlstInfoService03/getMdctnPdAtentInfoList03"
+
+        const val QUERY_DUR_AGE_SPECIFIC_CONTRAINDICATIONS_PATH =
+            "/1471000/DURPrdlstInfoService03/getMdctnPdAtentInfoList03"
+
+        const val QUERY_DUR_THERAPEUTIC_DUPLICATION_PATH =
+            "/1471000/DURPrdlstInfoService03/getEfcyDplctInfoList03"
+
+        const val QUERY_DUR_SPLITTING_PRECAUTION_PATH =
+            "/1471000/DURPrdlstInfoService03/getSeobangjeongPartitnAtentInfoList03"
         private val isServiceUnavailable =
             Predicate<HttpStatusCode> { statusCode -> statusCode.isSameCodeAs(HttpStatus.SERVICE_UNAVAILABLE) }
 

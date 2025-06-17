@@ -1,0 +1,58 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 246140,
+    "numOfRows": 1,
+    "items": [
+      {
+        "DUR_SEQ": "83",
+        "TYPE_CODE": "A",
+        "TYPE_NAME": "병용금기",
+        "MIX": "단일",
+        "INGR_CODE": "D000256",
+        "INGR_KOR_NAME": "에리트로마이신스티노프레이트",
+        "INGR_ENG_NAME": "Erythromycin Stinoprate",
+        "MIX_INGR": null,
+        "ITEM_SEQ": "200704461",
+        "ITEM_NAME": "에리시스정(에리트로마이신스티노프레이트)(수출용)",
+        "ENTP_NAME": "(주)유영제약",
+        "CHART": "백색 또는 미황색의 장방형 정제",
+        "FORM_CODE": "010101",
+        "ETC_OTC_CODE": "02",
+        "CLASS_CODE": "06150",
+        "FORM_NAME": "나정",
+        "ETC_OTC_NAME": "전문의약품",
+        "CLASS_NAME": "주로 그람양성, 음성균, 리케치아, 비루스에 작용하는 것",
+        "MAIN_INGR": "[M257644]에리트로마이신스티노프레이트",
+        "MIXTURE_DUR_SEQ": "83",
+        "MIXTURE_MIX": "단일",
+        "MIXTURE_INGR_CODE": "D000713",
+        "MIXTURE_INGR_KOR_NAME": "염산린코마이신",
+        "MIXTURE_INGR_ENG_NAME": "Lincomycin Hydrochloride",
+        "MIXTURE_ITEM_SEQ": "200302561",
+        "MIXTURE_ITEM_NAME": "리코민주(염산린코마이신)(수출용)",
+        "MIXTURE_ENTP_NAME": "대한뉴팜(주)",
+        "MIXTURE_FORM_CODE": "210101",
+        "MIXTURE_ETC_OTC_CODE": "02",
+        "MIXTURE_CLASS_CODE": "06110",
+        "MIXTURE_FORM_NAME": "용액주사제",
+        "MIXTURE_ETC_OTC_NAME": "전문의약품",
+        "MIXTURE_CLASS_NAME": "주로 그람양성균에 작용하는 것",
+        "MIXTURE_MAIN_INGR": "[M020043]염산린코마이신",
+        "NOTIFICATION_DATE": "20090303",
+        "PROHBT_CONTENT": "병용을 하여도 항균작용이 증가되지 않음\n",
+        "REMARK": null,
+        "ITEM_PERMIT_DATE": "20070418",
+        "MIXTURE_ITEM_PERMIT_DATE": "20031030",
+        "MIXTURE_CHART": "무색 내지 미황색의 투명한 액이 들어있는 갈색의 앰플\r\n",
+        "CHANGE_DATE": "20200806",
+        "MIXTURE_CHANGE_DATE": "20201016",
+        "BIZRNO": "3018109728"
+      }
+    ]
+  }
+}

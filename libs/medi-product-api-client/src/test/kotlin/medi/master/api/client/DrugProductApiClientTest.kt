@@ -6,6 +6,14 @@ import java.net.URLDecoder
 import java.nio.charset.Charset
 import kotlin.test.assertEquals
 import kotlinx.coroutines.runBlocking
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_DUR_AGE_SPECIFIC_CONTRAINDICATIONS_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_DUR_CONCOMITANT_USE_CONTRAINDICATIONS_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_DUR_DOS_PRECAUTION_CONTRAINDICATIONS_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_DUR_DURATION_OF_USE_CAUTIONS_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_DUR_ELDERLY_PRECAUTIONS_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_DUR_PREGNANCY_CONTRAINDICATIONS_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_DUR_SPLITTING_PRECAUTION_PATH
+import medi.master.api.client.DrugProductApiClient.Companion.QUERY_DUR_THERAPEUTIC_DUPLICATION_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_BASE_PRICE_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_BUNDLE_PATH
 import medi.master.api.client.DrugProductApiClient.Companion.QUERY_PROD_DETAIL_PATH
@@ -335,6 +343,266 @@ class DrugProductApiClientTest {
         )
         assertEquals(identifier, response.body.items.first().itemSequence)
     }
+
+    @Test
+    fun testQueryDurConcomitantUseContraindications() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/dur-concomittant-use-contrainedication-response.json").getContentAsString(
+                Charset.defaultCharset()
+            )
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryDurConcomitantUseContraindications()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_DUR_CONCOMITANT_USE_CONTRAINDICATIONS_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().itemSequence.isNotBlank())
+
+    }
+
+    @Test
+    fun testQueryPregnancyContraindications() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/dur-pregnancy-contrainedication-response.json").getContentAsString(
+                Charset.defaultCharset()
+            )
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryPregnancyContraindications()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_DUR_PREGNANCY_CONTRAINDICATIONS_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().itemSequence.isNotBlank())
+    }
+
+    @Test
+    fun testQueryDurDosagePrecautions() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/dur-dos-precaution-response.json").getContentAsString(
+                Charset.defaultCharset()
+            )
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryDurDosagePrecautions()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_DUR_DOS_PRECAUTION_CONTRAINDICATIONS_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().itemSequence.isNotBlank())
+    }
+
+    @Test
+    fun testQueryDurDurationOfUsePrecautions() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/dur-duation-of-use-precautions-response.json").getContentAsString(
+                Charset.defaultCharset()
+            )
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryDurDurationOfUsePrecautions()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_DUR_DURATION_OF_USE_CAUTIONS_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().itemSequence.isNotBlank())
+    }
+
+    @Test
+    fun testQueryElderlyPrecautions() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/dur-elderly-precautions-response.json").getContentAsString(
+                Charset.defaultCharset()
+            )
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryDurDurationOfUsePrecautions()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_DUR_ELDERLY_PRECAUTIONS_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().itemSequence.isNotBlank())
+    }
+
+    @Test
+    fun testQueryAgeSpecificContraindications() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/dur-age-specific-contraindications-response.json").getContentAsString(
+                Charset.defaultCharset()
+            )
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryDurAgeSpecificContraindications()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_DUR_AGE_SPECIFIC_CONTRAINDICATIONS_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().itemSequence.isNotBlank())
+    }
+
+    @Test
+    fun testQueryDurTherapeuticDuplication() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/dur-therapeutic-duplication-response.json").getContentAsString(
+                Charset.defaultCharset()
+            )
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryDurTherapeuticDuplication()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_DUR_THERAPEUTIC_DUPLICATION_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().itemSequence.isNotBlank())
+    }
+
+    //
+
+    @Test
+    fun testQueryDurSplittingPrecaution() = runBlocking {
+        val testSuccessResponse =
+            ClassPathResource("test-data/dur-splitting-precaution-response.json").getContentAsString(
+                Charset.defaultCharset()
+            )
+        val mockServerResponse = createMockResponse(testSuccessResponse)
+        mockWebServer.enqueue(mockServerResponse)
+
+        val apiKey = "test".encodeQueryParameter()
+        val host = "http://${mockWebServer.hostName}:${mockWebServer.port}"
+        val apiClient = DrugProductApiClient(
+            configProperties = ProductApiConfigProperties(
+                serviceKey = apiKey,
+                host = host,
+                path = ""
+            )
+        )
+
+        val response = apiClient.queryDurSplittingPrecaution()
+        val recordedRequest = mockWebServer.takeRequest()
+        assertEquals(
+            QUERY_DUR_SPLITTING_PRECAUTION_PATH,
+            recordedRequest.requestUrl?.pathSegments?.joinToString(prefix = "/", separator = "/")
+        )
+        assertEquals(
+            URLDecoder.decode(apiKey, Charset.defaultCharset()),
+            recordedRequest.requestUrl?.queryParameter("serviceKey")
+        )
+        assertTrue(response.body.items.first().itemSequence.isNotBlank())
+    }
+
 
     private fun createMockResponse(body: String): MockResponse {
         val mockServerResponse = MockResponse()

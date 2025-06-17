@@ -1,0 +1,36 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 6794,
+    "numOfRows": 1,
+    "items": [
+      {
+        "TYPE_NAME": "용량주의",
+        "MIX_TYPE": "단일",
+        "INGR_CODE": "D000893",
+        "INGR_ENG_NAME": "Chlorpheniramine Maleate",
+        "INGR_NAME": "클로르페니라민말레산염",
+        "MIX_INGR": null,
+        "FORM_NAME": "나정",
+        "ITEM_SEQ": "196000011",
+        "ITEM_NAME": "페니라민정(클로르페니라민말레산염)",
+        "ITEM_PERMIT_DATE": "19601010",
+        "ENTP_NAME": "(주)유한양행",
+        "CHART": "미황색의 원형 정제",
+        "CLASS_CODE": "01410",
+        "CLASS_NAME": "항히스타민제",
+        "ETC_OTC_NAME": "일반의약품",
+        "MAIN_INGR": "[M223211]클로르페니라민말레산염",
+        "NOTIFICATION_DATE": "20180831",
+        "PROHBT_CONTENT": "클로르페니라민말레산염 24mg",
+        "REMARK": null,
+        "INGR_ENG_NAME_FULL": "Chlorpheniramine Maleate(클로르페니라민말레산염)",
+        "CHANGE_DATE": "20190826"
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 681,
+    "numOfRows": 1,
+    "items": [
+      {
+        "TYPE_NAME": "투여기간주의",
+        "MIX_TYPE": "단일",
+        "INGR_CODE": "D000425",
+        "INGR_ENG_NAME": "Metoclopramide",
+        "INGR_NAME": "메토클로프라미드",
+        "MIX_INGR": null,
+        "FORM_NAME": "필름코팅정",
+        "ITEM_SEQ": "197200484",
+        "ITEM_NAME": "맥페란정(메토클로프라미드)",
+        "ITEM_PERMIT_DATE": "19720210",
+        "ENTP_NAME": "동화약품(주)",
+        "CHART": "흰색의 원형 필름코팅정",
+        "CLASS_CODE": "02390",
+        "CLASS_NAME": "기타의 소화기관용약",
+        "ETC_OTC_NAME": "전문의약품",
+        "MAIN_INGR": "[M050465]메토클로프라미드",
+        "NOTIFICATION_DATE": "20150331",
+        "PROHBT_CONTENT": null,
+        "REMARK": null,
+        "INGR_ENG_NAME_FULL": "Metoclopramide(메토클로프라미드)",
+        "CHANGE_DATE": "20140103"
+      }
+    ]
+  }
+}

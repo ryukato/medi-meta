@@ -340,7 +340,6 @@ data class DrugPillIdentificationResponse(
 )
 
 
-
 data class RetrieveStopSaleDetailsInformationResponse(
     @field:JsonProperty("ITEM_SEQ")
     val itemSequence: String,
@@ -373,3 +372,599 @@ data class RetrieveStopSaleDetailsInformationResponse(
     @field:JsonProperty("STD_CD")
     val standardCode: String,
 )
+data class DurConcomitantUseContraindicationsResponse(
+
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+
+    @field:JsonProperty("DUR_SEQ")
+    val durSeq: String,
+
+    @field:JsonProperty("TYPE_CODE")
+    val typeCode: String,
+
+    @field:JsonProperty("TYPE_NAME")
+    val typeName: String,
+
+    @field:JsonProperty("MIX")
+    val mix: String,
+
+    @field:JsonProperty("INGR_CODE")
+    val ingredientCode: String,
+
+    @field:JsonProperty("INGR_KOR_NAME")
+    val ingredientName: String,
+
+    @field:JsonProperty("INGR_ENG_NAME")
+    val ingredientEngName: String,
+
+    @field:JsonProperty("MIX_INGR")
+    val mixIngredient: String? = null,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("FORM_CODE")
+    val formCode: String,
+
+    @field:JsonProperty("ETC_OTC_CODE")
+    val etcOtcCode: String,
+
+    @field:JsonProperty("CLASS_CODE")
+    val classCode: String,
+
+    @field:JsonProperty("FORM_NAME")
+    val formName: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val className: String,
+
+    @field:JsonProperty("MAIN_INGR")
+    val mainIngredient: String,
+
+    @field:JsonProperty("MIXTURE_DUR_SEQ")
+    val mixtureDurSeq: String,
+
+    @field:JsonProperty("MIXTURE_MIX")
+    val mixtureMix: String,
+
+    @field:JsonProperty("MIXTURE_INGR_CODE")
+    val mixtureIngredientCode: String,
+
+    @field:JsonProperty("MIXTURE_INGR_KOR_NAME")
+    val mixtureIngredientKorName: String,
+
+    @field:JsonProperty("MIXTURE_INGR_ENG_NAME")
+    val mixtureIngredientEngName: String,
+
+    @field:JsonProperty("MIXTURE_ITEM_SEQ")
+    val mixtureItemSequence: String,
+
+    @field:JsonProperty("MIXTURE_ITEM_NAME")
+    val mixtureItemName: String,
+
+    @field:JsonProperty("MIXTURE_ENTP_NAME")
+    val mixtureEnterpriseName: String,
+
+    @field:JsonProperty("MIXTURE_FORM_CODE")
+    val mixtureFormCode: String,
+
+    @field:JsonProperty("MIXTURE_ETC_OTC_CODE")
+    val mixtureEtcOtcCode: String,
+
+    @field:JsonProperty("MIXTURE_CLASS_CODE")
+    val mixtureClassCode: String,
+
+    @field:JsonProperty("MIXTURE_FORM_NAME")
+    val mixtureFormName: String,
+
+    @field:JsonProperty("MIXTURE_ETC_OTC_NAME")
+    val mixtureEtcOtcName: String,
+
+    @field:JsonProperty("MIXTURE_CLASS_NAME")
+    val mixtureClassName: String,
+
+    @field:JsonProperty("MIXTURE_MAIN_INGR")
+    val mixtureMainIngredient: String,
+
+    @field:JsonProperty("NOTIFICATION_DATE")
+    val notificationDate: String,
+
+    @field:JsonProperty("PROHBT_CONTENT")
+    val prohibitContent: String,
+
+    @field:JsonProperty("REMARK")
+    val remark: String? = null,
+
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("MIXTURE_ITEM_PERMIT_DATE")
+    val mixtureItemPermitDate: String,
+
+    @field:JsonProperty("MIXTURE_CHART")
+    val mixtureChart: String,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String,
+
+    @field:JsonProperty("MIXTURE_CHANGE_DATE")
+    val mixtureChangeDate: String,
+
+    @field:JsonProperty("BIZRNO")
+    val businessRegistrationNumber: String
+)
+
+
+data class DurPregnancyContraindicationResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+
+    @field:JsonProperty("TYPE_NAME")
+    val typeName: String,
+
+    @field:JsonProperty("MIX_TYPE")
+    val mixType: String,
+
+    @field:JsonProperty("INGR_CODE")
+    val ingredientCode: String,
+
+    @field:JsonProperty("INGR_ENG_NAME")
+    val ingredientEngName: String,
+
+    @field:JsonProperty("INGR_NAME")
+    val ingredientName: String,
+
+    @field:JsonProperty("MIX_INGR")
+    val mixIngredient: String? = null,
+
+    @field:JsonProperty("FORM_NAME")
+    val formName: String,
+
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("CLASS_CODE")
+    val classCode: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val className: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("MAIN_INGR")
+    val mainIngredient: String,
+
+    @field:JsonProperty("NOTIFICATION_DATE")
+    val notificationDate: String,
+
+    @field:JsonProperty("PROHBT_CONTENT")
+    val prohibitContent: String,
+
+    @field:JsonProperty("REMARK")
+    val remark: String? = null,
+
+    @field:JsonProperty("INGR_ENG_NAME_FULL")
+    val ingredientEngNameFull: String,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String
+)
+
+
+data class DurDosePrecautionResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+
+    @field:JsonProperty("TYPE_NAME")
+    val typeName: String,
+
+    @field:JsonProperty("MIX_TYPE")
+    val mixType: String,
+
+    @field:JsonProperty("INGR_CODE")
+    val ingredientCode: String,
+
+    @field:JsonProperty("INGR_ENG_NAME")
+    val ingredientEngName: String,
+
+    @field:JsonProperty("INGR_NAME")
+    val ingredientName: String,
+
+    @field:JsonProperty("MIX_INGR")
+    val mixIngredient: String? = null,
+
+    @field:JsonProperty("FORM_NAME")
+    val formName: String,
+
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("CLASS_CODE")
+    val classCode: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val className: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("MAIN_INGR")
+    val mainIngredient: String,
+
+    @field:JsonProperty("NOTIFICATION_DATE")
+    val notificationDate: String,
+
+    @field:JsonProperty("PROHBT_CONTENT")
+    val prohibitContent: String,
+
+    @field:JsonProperty("REMARK")
+    val remark: String? = null,
+
+    @field:JsonProperty("INGR_ENG_NAME_FULL")
+    val ingredientEngNameFull: String,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String
+)
+
+
+data class DurationOfUsePrecautionsResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+
+    @field:JsonProperty("TYPE_NAME")
+    val typeName: String,
+
+    @field:JsonProperty("MIX_TYPE")
+    val mixType: String,
+
+    @field:JsonProperty("INGR_CODE")
+    val ingredientCode: String,
+
+    @field:JsonProperty("INGR_ENG_NAME")
+    val ingredientEngName: String,
+
+    @field:JsonProperty("INGR_NAME")
+    val ingredientName: String,
+
+    @field:JsonProperty("MIX_INGR")
+    val mixIngredient: String? = null,
+
+    @field:JsonProperty("FORM_NAME")
+    val formName: String,
+
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("CLASS_CODE")
+    val classCode: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val className: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("MAIN_INGR")
+    val mainIngredient: String,
+
+    @field:JsonProperty("NOTIFICATION_DATE")
+    val notificationDate: String,
+
+    @field:JsonProperty("PROHBT_CONTENT")
+    val prohibitContent: String? = null,
+
+    @field:JsonProperty("REMARK")
+    val remark: String? = null,
+
+    @field:JsonProperty("INGR_ENG_NAME_FULL")
+    val ingredientEngNameFull: String,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String
+)
+
+data class DurElderlyPrecautionsResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+
+    @field:JsonProperty("TYPE_NAME")
+    val typeName: String,
+
+    @field:JsonProperty("MIX_TYPE")
+    val mixtureType: String,
+
+    @field:JsonProperty("INGR_CODE")
+    val ingredientCode: String,
+
+    @field:JsonProperty("INGR_ENG_NAME")
+    val ingredientEngName: String,
+
+    @field:JsonProperty("INGR_NAME")
+    val ingredientName: String,
+
+    @field:JsonProperty("MIX_INGR")
+    val mixtureIngredient: String? = null,
+
+    @field:JsonProperty("FORM_NAME")
+    val formName: String,
+    
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("CLASS_CODE")
+    val classificationCode: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val classificationName: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("MAIN_INGR")
+    val mainIngredient: String,
+
+    @field:JsonProperty("NOTIFICATION_DATE")
+    val notificationDate: String,
+
+    @field:JsonProperty("PROHBT_CONTENT")
+    val prohibitContent: String? = null,
+
+    @field:JsonProperty("REMARK")
+    val remark: String? = null,
+
+    @field:JsonProperty("INGR_ENG_NAME_FULL")
+    val ingredientEngNameFull: String,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String
+)
+
+data class DurGeriatricPrecautionResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+    
+    @field:JsonProperty("TYPE_NAME")
+    val typeName: String,
+
+    @field:JsonProperty("MIX_TYPE")
+    val mixtureType: String,
+
+    @field:JsonProperty("INGR_CODE")
+    val ingredientCode: String,
+
+    @field:JsonProperty("INGR_ENG_NAME")
+    val ingredientEngName: String,
+
+    @field:JsonProperty("INGR_NAME")
+    val ingredientName: String,
+
+    @field:JsonProperty("MIX_INGR")
+    val mixtureIngredient: String? = null,
+
+    @field:JsonProperty("FORM_NAME")
+    val formName: String,
+
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("CLASS_CODE")
+    val classificationCode: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val classificationName: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("MAIN_INGR")
+    val mainIngredient: String,
+
+    @field:JsonProperty("NOTIFICATION_DATE")
+    val notificationDate: String,
+
+    @field:JsonProperty("PROHBT_CONTENT")
+    val prohibitContent: String? = null,
+
+    @field:JsonProperty("REMARK")
+    val remark: String? = null,
+
+    @field:JsonProperty("INGR_ENG_NAME_FULL")
+    val ingredientEngNameFull: String,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String
+)
+
+data class DurTherapeuticDuplicationResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+
+    @field:JsonProperty("DUR_SEQ")
+    val durSeq: String,
+
+    @field:JsonProperty("EFFECT_NAME")
+    val effectName: String,
+
+    @field:JsonProperty("TYPE_NAME")
+    val typeName: String,
+
+    @field:JsonProperty("INGR_CODE")
+    val ingredientCode: String,
+
+    @field:JsonProperty("INGR_NAME")
+    val ingredientName: String,
+
+    @field:JsonProperty("INGR_ENG_NAME")
+    val ingredientEngName: String,
+
+    @field:JsonProperty("FORM_CODE_NAME")
+    val formCodeName: String,
+
+    @field:JsonProperty("MIX")
+    val mixtureType: String,
+
+    @field:JsonProperty("MIX_INGR")
+    val mixtureIngredient: String? = null,
+
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("FORM_CODE")
+    val formCode: String,
+
+    @field:JsonProperty("FORM_NAME")
+    val formName: String,
+
+    @field:JsonProperty("ETC_OTC_CODE")
+    val etcOtcCode: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("CLASS_CODE")
+    val classificationCode: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val classificationName: String,
+
+    @field:JsonProperty("MAIN_INGR")
+    val mainIngredient: String,
+
+    @field:JsonProperty("NOTIFICATION_DATE")
+    val notificationDate: String,
+
+    @field:JsonProperty("PROHBT_CONTENT")
+    val prohibitContent: String? = null,
+
+    @field:JsonProperty("REMARK")
+    val remark: String? = null,
+
+    @field:JsonProperty("INGR_ENG_NAME_FULL")
+    val ingredientEngNameFull: String,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String? = null,
+
+    @field:JsonProperty("BIZRNO")
+    val businessRegistrationNumber: String,
+
+    @field:JsonProperty("SERS_NAME")
+    val seriesName: String
+)
+
+data class DurSplitCautionResponse(
+    @field:JsonProperty("ITEM_SEQ")
+    val itemSequence: String,
+
+    @field:JsonProperty("ITEM_NAME")
+    val itemName: String,
+    
+    @field:JsonProperty("TYPE_NAME")
+    val typeName: String,
+
+    @field:JsonProperty("ITEM_PERMIT_DATE")
+    val itemPermitDate: String,
+
+    @field:JsonProperty("FORM_CODE_NAME")
+    val formCodeName: String,
+
+    @field:JsonProperty("ENTP_NAME")
+    val enterpriseName: String,
+
+    @field:JsonProperty("CHART")
+    val chart: String,
+
+    @field:JsonProperty("CLASS_CODE")
+    val classificationCode: String,
+
+    @field:JsonProperty("CLASS_NAME")
+    val classificationName: String,
+
+    @field:JsonProperty("ETC_OTC_NAME")
+    val etcOtcName: String,
+
+    @field:JsonProperty("MIX")
+    val mixtureType: String,
+
+    @field:JsonProperty("MAIN_INGR")
+    val mainIngredient: String,
+
+    @field:JsonProperty("PROHBT_CONTENT")
+    val prohibitContent: String,
+
+    @field:JsonProperty("REMARK")
+    val remark: String? = null,
+
+    @field:JsonProperty("CHANGE_DATE")
+    val changeDate: String,
+
+    @field:JsonProperty("BIZRNO")
+    val businessRegistrationNumber: String
+)
+

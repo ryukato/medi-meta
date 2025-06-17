@@ -1,0 +1,36 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 15576,
+    "numOfRows": 1,
+    "items": [
+      {
+        "TYPE_NAME": "임부금기",
+        "MIX_TYPE": "단일",
+        "INGR_CODE": "D000199",
+        "INGR_ENG_NAME": "Dexamethasone",
+        "INGR_NAME": "덱사메타손",
+        "MIX_INGR": null,
+        "FORM_NAME": "나정",
+        "ITEM_SEQ": "196300064",
+        "ITEM_NAME": "부광덱사메타손정",
+        "ITEM_PERMIT_DATE": "19630508",
+        "ENTP_NAME": "부광약품(주)",
+        "CHART": "백색의 정제",
+        "CLASS_CODE": "02450",
+        "CLASS_NAME": "부신호르몬제",
+        "ETC_OTC_NAME": "전문의약품",
+        "MAIN_INGR": "[M040080]덱사메타손",
+        "NOTIFICATION_DATE": "20130712",
+        "PROHBT_CONTENT": "\"동물실험에서 기형발생 작용 보고.태아의 성장지체, 언청이의 위험 등의 증가, 뇌성장 및 발달에 영향 가능성. 신생아에 부신부전증 유발 가능성.\"",
+        "REMARK": null,
+        "INGR_ENG_NAME_FULL": "Dexamethasone(덱사메타손)",
+        "CHANGE_DATE": "20250507"
+      }
+    ]
+  }
+}

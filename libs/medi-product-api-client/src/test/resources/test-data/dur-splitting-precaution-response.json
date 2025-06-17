@@ -1,0 +1,31 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 1,
+    "numOfRows": 1,
+    "items": [
+      {
+        "TYPE_NAME": "분할주의",
+        "ITEM_SEQ": "197100081",
+        "ITEM_NAME": "키모랄에스정",
+        "ITEM_PERMIT_DATE": "1971May6th",
+        "FORM_CODE_NAME": "장용성필름코팅정",
+        "ENTP_NAME": "(주)에이프로젠바이오로직스",
+        "CHART": "내수용 : 연녹색의 원형 장용성 필름코팅정, 수출용 : 적색의 원형 장용성 필름코팅정",
+        "CLASS_CODE": "03950 ",
+        "CLASS_NAME": "효소제제",
+        "ETC_OTC_NAME": "일반의약품",
+        "MIX": "복합",
+        "MAIN_INGR": "[M051649]결정트립신/[M095415]브로멜라인/[M095415]브로멜라인/[M051649]결정트립신",
+        "PROHBT_CONTENT": "분할불가",
+        "REMARK": null,
+        "CHANGE_DATE": "20210629",
+        "BIZRNO": "2188100518"
+      }
+    ]
+  }
+}
